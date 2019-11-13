@@ -484,7 +484,8 @@ License: You must have a valid license purchased only from themeforest (the abov
                                 </div>
                                 <h3><a href="shop-item.html">{{$item->name}}</a></h3>
                                 <div class="pi-price">{{$item->description}}</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">{{$item->product_categories_name}}</a>
+                                <a href="javascript:;"
+                                   class="btn btn-default add2cart">{{$item->product_categories_name}}</a>
                                 <div class="sticker sticker-new"></div>
                             </div>
                         </div>
@@ -500,58 +501,10 @@ License: You must have a valid license purchased only from themeforest (the abov
             <!-- BEGIN SIDEBAR -->
             <div class="sidebar col-md-3 col-sm-4">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Ladies</a></li>
-                    <li class="list-group-item clearfix dropdown">
-                        <a href="shop-product-list.html">
-                            <i class="fa fa-angle-right"></i>
-                            Mens
-
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="list-group-item dropdown clearfix">
-                                <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Shoes </a>
-                                <ul class="dropdown-menu">
-                                    <li class="list-group-item dropdown clearfix">
-                                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-                                                    Classic 1</a></li>
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-                                                    Classic 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="list-group-item dropdown clearfix">
-                                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport
-                                                    1</a></li>
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport
-                                                    2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Kids</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Accessories</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Sports</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Brands</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Electronics</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Home & Garden</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
-                                class="fa fa-angle-right"></i> Custom Link</a></li>
+                    @foreach($categories as $item)
+                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i
+                                    class="{{$item->icon}}"></i> {{$item->name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -560,233 +513,40 @@ License: You must have a valid license purchased only from themeforest (the abov
             <div class="col-md-9 col-sm-8">
                 <h2>Three items</h2>
                 <div class="owl-carousel owl-carousel3">
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k1.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k1.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    @foreach($cafe_restoran as $item)
+                        <div>
+                            <div class="product-item">
+                                <div class="pi-img-wrapper">
+                                    <img src="{{$item->featured_image}}" class="img-responsive"
+                                         alt="{{$item->name}}">
                                 </div>
+                                <h3><a href="shop-item.html">{{$item->name}}</a></h3>
                             </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            <div class="sticker sticker-new"></div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k2.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k2.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k3.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k3.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k4.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k4.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            <div class="sticker sticker-sale"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k1.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k1.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k2.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k2.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <!-- END CONTENT -->
         </div>
-        <div class="sidebar-products clearfix col-md-3 col-sm-4">
-            <h2>Bestsellers</h2>
-            <div class="item">
-                <a href="shop-item.html"><img src="assets/frontend/pages/img/products/k1.jpg"
-                                              alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
-                <div class="price">$31.00</div>
-            </div>
-            <div class="item">
-                <a href="shop-item.html"><img src="assets/frontend/pages/img/products/k4.jpg"
-                                              alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
-                <div class="price">$23.00</div>
-            </div>
-            <div class="item">
-                <a href="shop-item.html"><img src="assets/frontend/pages/img/products/k3.jpg"
-                                              alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
-                <div class="price">$86.00</div>
-            </div>
-        </div>
-        <!-- END SIDEBAR & CONTENT -->
 
         <!-- BEGIN TWO PRODUCTS & PROMO -->
         <div class="row margin-bottom-35 ">
             <!-- BEGIN TWO PRODUCTS -->
-            <div class="col-md-3 two-items-bottom-items">
+            <div class="col-md-6 two-items-bottom-items">
                 <h2>Two items</h2>
                 <div class="owl-carousel owl-carousel2">
+                    @foreach($gallery as $item)
                     <div>
                         <div class="product-item">
                             <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k4.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k4.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
+                                <img src="{{$item->featured_image}}" class="img-responsive"
+                                     alt="{{$item->name}}">
+
                             </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                            <h3><a href="shop-item.html">{{$item->name}}</a></h3>
                         </div>
                     </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k2.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k2.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k3.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k3.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k1.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k1.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k4.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k4.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/frontend/pages/img/products/k3.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/frontend/pages/img/products/k3.jpg"
-                                       class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
+           @endforeach
                 </div>
             </div>
             <!-- END TWO PRODUCTS -->
@@ -802,16 +562,16 @@ License: You must have a valid license purchased only from themeforest (the abov
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="assets/frontend/pages/img/index-sliders/slide1.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
+                                <img src="../../assets/frontend/pages/img/index-sliders/slide1.jpg"
+                                     class="img-responsive" alt="Berry Lace Dress">
                             </div>
                             <div class="item">
-                                <img src="assets/frontend/pages/img/index-sliders/slide2.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
+                                <img src="../../assets/frontend/pages/img/index-sliders/slide2.jpg"
+                                     class="img-responsive" alt="Berry Lace Dress">
                             </div>
                             <div class="item">
-                                <img src="assets/frontend/pages/img/index-sliders/slide3.jpg" class="img-responsive"
-                                     alt="Berry Lace Dress">
+                                <img src="../../assets/frontend/pages/img/index-sliders/slide3.jpg"
+                                     class="img-responsive" alt="Berry Lace Dress">
                             </div>
                         </div>
                     </div>

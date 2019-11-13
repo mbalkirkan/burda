@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductCategory extends Model
+class Gallery extends Model
 {
     protected $fillable = [
-        'name','icon'
+        'name',  'featured_image'
     ];
 }
