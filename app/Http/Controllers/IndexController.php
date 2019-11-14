@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
 use App\Gallery;
 use App\Product;
 use App\ProductCategory;
@@ -34,6 +35,35 @@ class IndexController extends Controller
 
         $gallery=Gallery::all();
 
-      return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery]);
+        $campaigns=Campaign::all();
+
+
+      return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery,'campaigns'=>$campaigns]);
+    }
+
+
+    public function category(Request $request)
+    {
+
+
+        $products=Product::
+            join('product_categories','products.product_category_id','=','product_categories.id')
+            ->where('product_categories.slug',$request->category)
+            ->select('products.*','product_categories.name as product_categories_name' )
+            ->orderBy('products.created_at', 'DESC')
+            ->get();
+
+        return $products;
+
+        $categories=ProductCategory::all();
+
+        $cafe_restoran=Product::where('product_category_id',1)->get();
+
+        $gallery=Gallery::all();
+
+        $campaigns=Campaign::all();
+
+
+        return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery,'campaigns'=>$campaigns]);
     }
 }
