@@ -31,7 +31,7 @@ class IndexController extends Controller
 
         $categories=ProductCategory::all();
 
-        $cafe_restoran=Product::where('product_category_id',1)->get();
+        $cafe_restoran=Product::where('product_category_id',2)->get();
 
         $gallery=Gallery::all();
 
@@ -53,7 +53,11 @@ class IndexController extends Controller
             ->orderBy('products.created_at', 'DESC')
             ->get();
 
-        return $products;
+        $category_name=$products[0]->product_categories_name;
+
+        $categories=ProductCategory::all();
+
+        return view('category_products',['products'=> $products,'category_name'=>$category_name,'categories'=>$categories]);
 
         $categories=ProductCategory::all();
 
