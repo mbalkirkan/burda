@@ -198,9 +198,9 @@
                                 <div class="pi-img-wrapper">
                                     <img src="{{$item->featured_image}}" class="img-responsive" alt="{{$item->name}}">
                                 </div>
-                                <h3><a href="shop-item.html">{{$item->name}}</a></h3>
+                                <h3><a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}">{{$item->name}}</a></h3>
                                 <div class="pi-price">{{$item->description}}</div>
-                                <a href="javascript:;"
+                                <a href="{{route('category',['category'=>$item->product_categories_slug]) }}"
                                    class="btn btn-default add2cart">{{$item->product_categories_name}}</a>
                                 <div class="sticker sticker-new"></div>
                             </div>
@@ -236,7 +236,7 @@
                                     <img src="{{$item->featured_image}}" class="img-responsive"
                                          alt="{{$item->name}}">
                                 </div>
-                                <h3><a href="shop-item.html">{{$item->name}}</a></h3>
+                                <h3><a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}">{{$item->name}}</a></h3>
                             </div>
                         </div>
                     @endforeach

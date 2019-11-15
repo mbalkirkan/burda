@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->text('featured_image');
+            $table->text('slug');
             $table->json('photos')->nullable();
             $table->string('phone');
             $table->string('address');

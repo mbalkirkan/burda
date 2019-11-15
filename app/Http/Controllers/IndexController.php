@@ -25,13 +25,18 @@ class IndexController extends Controller
     {
         $new_products=Product::limit(10)
             ->join('product_categories','products.product_category_id','=','product_categories.id')
-            ->select('products.*','product_categories.name as product_categories_name' )
+            ->select('products.*','product_categories.name as product_categories_name','product_categories.slug as product_categories_slug' )
             ->orderBy('products.created_at', 'DESC')
             ->get();
 
+
+
         $categories=ProductCategory::all();
 
-        $cafe_restoran=Product::where('product_category_id',2)->get();
+        $cafe_restoran=Product::where('product_category_id',2)
+            ->join('product_categories','products.product_category_id','=','product_categories.id')
+            ->select('products.*','product_categories.name as product_categories_name','product_categories.slug as product_categories_slug' )
+            ->get();
 
         $gallery=Gallery::all();
 
@@ -46,28 +51,37 @@ class IndexController extends Controller
     {
 
 
+
+
         $products=Product::
             join('product_categories','products.product_category_id','=','product_categories.id')
             ->where('product_categories.slug',$request->category)
-            ->select('products.*','product_categories.name as product_categories_name' )
+            ->select('products.*','product_categories.name as product_categories_name','product_categories.photo as product_categories_photo','product_categories.slug as product_categories_slug' )
             ->orderBy('products.created_at', 'DESC')
             ->get();
 
+        if(count($products)==0)
+        {
+            return 404;
+        }
+
         $category_name=$products[0]->product_categories_name;
+        $category_photo=$products[0]->product_categories_photo;
+
 
         $categories=ProductCategory::all();
 
-        return view('category_products',['products'=> $products,'category_name'=>$category_name,'categories'=>$categories]);
+        return view('category_products',['products'=> $products,'category_name'=>$category_name,'categories'=>$categories,'category_photo'=>$category_photo]);
 
-        $categories=ProductCategory::all();
-
-        $cafe_restoran=Product::where('product_category_id',1)->get();
-
-        $gallery=Gallery::all();
-
-        $campaigns=Campaign::all();
-
-
-        return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery,'campaigns'=>$campaigns]);
+//        $categories=ProductCategory::all();
+//
+//        $cafe_restoran=Product::where('product_category_id',1)->get();
+//
+//        $gallery=Gallery::all();
+//
+//        $campaigns=Campaign::all();
+//
+//
+//        return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery,'campaigns'=>$campaigns]);
     }
 }
