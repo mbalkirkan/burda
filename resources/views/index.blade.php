@@ -1,8 +1,9 @@
 @extends('layout')
 
-@section('title')
-    Anasayfa
-@stop
+@section('title')Anasayfa @stop
+
+@section('meta_description')Uşak Parmaklarınızın Ucunda, tek tıkla heryere ulaşın, göz atın..@stop
+@section('meta_keywords') Uşak cafe,uşak restoran,uşak gezilecek yerler,uşak alışveriş,uşak avm,uşak karun,uşak özdilek,uşak ulubey,uşak itiraf @stop
 
 
 @section('body')
@@ -12,7 +13,7 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container">
-        <a class="site-logo" href="shop-index.html"><img src="assets/frontend/layout/img/logos/logo-shop-red.png"
+        <a class="site-logo" href="{{route('index')}}"><img src="assets/frontend/layout/img/logos/logo-shop-red.png"
                                                          alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
@@ -255,8 +256,9 @@
                         <div>
                             <div class="product-item">
                                 <div class="pi-img-wrapper">
-                                    <img src="{{$item->featured_image}}" class="img-responsive"
-                                         alt="{{$item->name}}">
+                                    <a href="{{$item->featured_image}}" class=" fancybox-button">     <img src="{{$item->featured_image}}" class="img-responsive"
+                                                                                                                          alt="{{$item->name}}"></a>
+
 
                                 </div>
                                 <h3><a href="shop-item.html">{{$item->name}}</a></h3>
@@ -382,10 +384,7 @@
             <!-- BEGIN TWITTER BLOCK -->
             <div class="col-md-3 col-sm-6 pre-footer-col">
                 <h2 class="margin-bottom-0">Latest Tweets</h2>
-                <a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark"
-                   data-link-color="#57C8EB" data-widget-id="455411516829736961"
-                   data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by
-                    @keenthemes...</a>
+
             </div>
             <!-- END TWITTER BLOCK -->
 

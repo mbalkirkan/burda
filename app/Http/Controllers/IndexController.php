@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campaign;
 use App\Gallery;
+use App\Item;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class IndexController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -23,27 +24,26 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-        $new_products=Product::limit(10)
-            ->join('product_categories','products.product_category_id','=','product_categories.id')
-            ->select('products.*','product_categories.name as product_categories_name','product_categories.slug as product_categories_slug' )
+        $new_products = Product::limit(10)
+            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
+            ->select('products.*', 'product_categories.name as product_categories_name', 'product_categories.slug as product_categories_slug')
             ->orderBy('products.created_at', 'DESC')
             ->get();
 
 
+        $categories = ProductCategory::all();
 
-        $categories=ProductCategory::all();
-
-        $cafe_restoran=Product::where('product_category_id',2)
-            ->join('product_categories','products.product_category_id','=','product_categories.id')
-            ->select('products.*','product_categories.name as product_categories_name','product_categories.slug as product_categories_slug' )
+        $cafe_restoran = Product::where('product_category_id', 2)
+            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
+            ->select('products.*', 'product_categories.name as product_categories_name', 'product_categories.slug as product_categories_slug')
             ->get();
 
-        $gallery=Gallery::all();
+        $gallery = Gallery::all();
 
-        $campaigns=Campaign::all();
+        $campaigns = Campaign::all();
 
 
-      return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery,'campaigns'=>$campaigns]);
+        return view('index', ['new_products' => $new_products, 'categories' => $categories, 'cafe_restoran' => $cafe_restoran, 'gallery' => $gallery, 'campaigns' => $campaigns]);
     }
 
 
@@ -51,27 +51,24 @@ class IndexController extends Controller
     {
 
 
-
-
-        $products=Product::
-            join('product_categories','products.product_category_id','=','product_categories.id')
-            ->where('product_categories.slug',$request->category)
-            ->select('products.*','product_categories.name as product_categories_name','product_categories.photo as product_categories_photo','product_categories.slug as product_categories_slug' )
+        $products = Product::
+        join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
+            ->where('product_categories.slug', $request->category)
+            ->select('products.*', 'product_categories.name as product_categories_name', 'product_categories.photo as product_categories_photo', 'product_categories.slug as product_categories_slug')
             ->orderBy('products.created_at', 'DESC')
             ->get();
 
-        if(count($products)==0)
-        {
+        if (count($products) == 0) {
             return 404;
         }
 
-        $category_name=$products[0]->product_categories_name;
-        $category_photo=$products[0]->product_categories_photo;
+        $category_name = $products[0]->product_categories_name;
+        $category_photo = $products[0]->product_categories_photo;
 
 
-        $categories=ProductCategory::all();
+        $categories = ProductCategory::all();
 
-        return view('category_products',['products'=> $products,'category_name'=>$category_name,'categories'=>$categories,'category_photo'=>$category_photo]);
+        return view('category_products', ['products' => $products, 'category_name' => $category_name, 'categories' => $categories, 'category_photo' => $category_photo]);
 
 //        $categories=ProductCategory::all();
 //
@@ -83,5 +80,31 @@ class IndexController extends Controller
 //
 //
 //        return view('index',['new_products'=>$new_products,'categories'=>$categories,'cafe_restoran'=>$cafe_restoran,'gallery'=>$gallery,'campaigns'=>$campaigns]);
+    }
+
+    public function product(Request $request)
+    {
+
+        $product = Product::where('products.slug', $request->product)
+            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
+            ->select('products.*', 'product_categories.name as product_categories_name', 'product_categories.photo as product_categories_photo', 'product_categories.slug as product_categories_slug')
+            ->orderBy('products.created_at', 'DESC')
+            ->first();
+
+        $product_items = Item::where('items.product_id', $product->id)
+            ->join('item_categories', 'items.category_id', '=', 'item_categories.id')
+            ->orderBy('items.product_id', 'ASC')
+            ->select('items.*', 'item_categories.name as item_category_name')
+            ->get();
+
+        $category_name = $product->product_categories_name;
+        $categories = ProductCategory::all();
+        return view('product', ['product' => $product, 'product_items' => $product_items, 'categories' => $categories, 'category_name' => $category_name]);
+    }
+
+
+    public function product_comment_add(Request $request)
+    {
+
     }
 }
