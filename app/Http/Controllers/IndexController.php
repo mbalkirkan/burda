@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campaign;
+use App\Comment;
 use App\Gallery;
 use App\Item;
 use App\Product;
@@ -31,7 +32,7 @@ class IndexController extends Controller
             ->get();
 
 
-        $categories = ProductCategory::all();
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
 
         $cafe_restoran = Product::where('product_category_id', 2)
             ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
@@ -66,7 +67,7 @@ class IndexController extends Controller
         $category_photo = $products[0]->product_categories_photo;
 
 
-        $categories = ProductCategory::all();
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
 
         return view('category_products', ['products' => $products, 'category_name' => $category_name, 'categories' => $categories, 'category_photo' => $category_photo]);
 
@@ -98,13 +99,25 @@ class IndexController extends Controller
             ->get();
 
         $category_name = $product->product_categories_name;
-        $categories = ProductCategory::all();
-        return view('product', ['product' => $product, 'product_items' => $product_items, 'categories' => $categories, 'category_name' => $category_name]);
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
+
+
+        $product_comments=Comment::where('product_id', $product->id)->get();
+
+        return view('product', ['product' => $product,'product_comments'=>$product_comments, 'product_items' => $product_items, 'categories' => $categories, 'category_name' => $category_name]);
     }
 
 
     public function product_comment_add(Request $request)
     {
-
+       $de= Comment::create([
+            'name'=>$request->name,
+            'comment'=>$request->review,
+            'rating'=>$request->backing5,
+           'product_id'=>$request->product_id,
+        ]);
+       if($de)
+       {return 200;}
+       else{return 422;}
     }
 }

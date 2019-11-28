@@ -108,11 +108,11 @@
                             <ul id="myTab" class="nav nav-tabs">
                                 <li><a href="#Aciklama" data-toggle="tab">Açıklama</a></li>
                                 <li><a href="#Menu" data-toggle="tab">Menü</a></li>
-                                <li class="active"><a href="#Yorumlar" data-toggle="tab">Yorumlar (2)</a></li>
+                                <li class="active"><a href="#Yorumlar" data-toggle="tab">Yorumlar ({{count($product_comments)}})</a></li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade" id="Aciklama">
-                                    <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod laoreet dolore magna aliquarm erat sit volutpat Nostrud duis molestie at dolore. Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod laoreet dolore magna aliquarm erat sit volutpat Nostrud duis molestie at dolore. Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod laoreet dolore magna aliquarm erat sit volutpat Nostrud duis molestie at dolore. </p>
+                                    <p>{{$product->explanation}} </p>
                                 </div>
                                 <div class="tab-pane fade" id="Menu">
                                     <!-- BEGIN ACCORDION PORTLET-->
@@ -136,7 +136,7 @@
                                                                 @endif
                                                                 <tr>
                                                                     <td class="datasheet-features-type">{{$item->name}}</td>
-                                                                    <td>{{$item->price}}</td>
+                                                                    <td>{{$item->price}} ₺</td>
                                                                 </tr>
                                                                 @if($loop->last|| $product_items[$loop->index+1]->category_id!=$item->category_id)
                                                             </table>
@@ -153,30 +153,25 @@
                                 </div>
                                 <div class="tab-pane fade in active" id="Yorumlar">
                                     <!--<p>There are no reviews for this product.</p>-->
+                                    @if(count( $product_comments)==0)
+                                        <p>Henüz yorum yapılmamış.</p>
+                                    @else
+                                    @foreach($product_comments as $items)
                                     <div class="review-item clearfix">
                                         <div class="review-item-submitted">
-                                            <strong>Bob</strong>
-                                            <em>30/12/2013 - 07:37</em>
-                                            <div class="rateit" data-rateit-value="5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                                            <strong>{{$items->name}}</strong>
+                                            <em>{{ \Carbon\Carbon::parse($items->created_at)->format('d.m.Y h:m')}}  </em>
+                                            <div class="rateit" data-rateit-value="{{$items->rating}}" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
                                         </div>
                                         <div class="review-item-content">
-                                            <p>Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.</p>
+                                            <p>{{$items->comment}}</p>
                                         </div>
                                     </div>
-                                    <div class="review-item clearfix">
-                                        <div class="review-item-submitted">
-                                            <strong>Mary</strong>
-                                            <em>13/12/2013 - 17:49</em>
-                                            <div class="rateit" data-rateit-value="3.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-                                        </div>
-                                        <div class="review-item-content">
-                                            <p>Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.</p>
-                                        </div>
-                                    </div>
-
+                                    @endforeach
+                                @endif
                                     <!-- BEGIN FORM-->
-                                    <form action="#" class="reviews-form" role="form">
-                                        <h2>Write a review</h2>
+
+                                        <h2>Yorum yap</h2>
                                         <div class="form-group">
                                             <label for="name">Ad <span class="require">*</span></label>
                                             <input type="text" class="form-control" id="name">
@@ -192,9 +187,9 @@
                                             </div>
                                         </div>
                                         <div class="padding-top-20">
-                                            <button type="submit" class="btn btn-primary">Gönder</button>
+                                            <button type="submit" id="comment_send" class="btn btn-primary">Gönder</button>
                                         </div>
-                                    </form>
+
                                     <!-- END FORM-->
                                 </div>
                             </div>
@@ -280,36 +275,7 @@
     </div>
     <!-- END PRE-FOOTER -->
 
-    <script>
-        $("#onay_btn").click(function () {
-            $.ajax({
-                    url: '{{route('comment.add')}}',
-                    type: 'POST',
-                    /* send the csrf-token and the input to the controller */
-                    data: {
-                        name:$('#name').val(),
-                        review:$('#review').val(),
-                        backing5:$('#backing5').val(),
-                    },
-                    dataType: 'JSON',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    /* remind that 'data' is the response of the AjaxController */
-                    success: function (data) {
-                        if (data == 200)
-                            Swal.fire(
-                                'Yorum gönderildi!',
-                                'Yorumunuz Eklendi, yönetici onayından sonra gözükecektir.',
-                                'success'
-                            ).then((result) => {
-                                window.location.reload();
-                            })
-                    }
-                }
-            );
-        });
-    </script>
+
 
 
 
@@ -329,7 +295,7 @@
     <script src="{{asset('assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js')}}" type="text/javascript"></script><!-- slider for products -->
     <script src="{{asset('assets/global/plugins/rateit/src/jquery.rateit.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/frontend/layout/scripts/layout.js')}}" type="text/javascript"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
     <script type="text/javascript">
@@ -337,6 +303,48 @@
             Layout.init();
             Layout.initTwitter();
             Layout.initOWL();
+        });
+    </script>
+
+
+    <script>
+        $("#comment_send").click(function () {
+            $.ajax({
+                    url: '{{route('comment.add')}}',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {
+                        name:$('#name').val(),
+                        review:$('#review').val(),
+                        backing5:$('#backing5').val(),
+                        product_id:{{$product->id}}
+                    },
+                    dataType: 'JSON',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) {
+                        if (data == 200)
+                            Swal.fire(
+                                'Yorum gönderildi!',
+                                'Yorumunuz Eklendi, yönetici onayından sonra gözükecektir.',
+                                'success'
+                            ).then((result) => {
+                                window.location.reload();
+                            })
+                        else{
+                            Swal.fire(
+                                'Yorum Gönderilemedi!',
+                                'Yorumunuz Eklenemedi.',
+                                'error'
+                            ).then((result) => {
+                                window.location.reload();
+                            })
+                        }
+                    }
+                }
+            );
         });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
