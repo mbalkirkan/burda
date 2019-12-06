@@ -203,7 +203,7 @@
                                 <div class="pi-price">{{$item->description}}</div>
                                 <a href="{{route('category',['category'=>$item->product_categories_slug]) }}"
                                    class="btn btn-default add2cart">{{$item->product_categories_name}}</a>
-                                <div class="sticker sticker-new"></div>
+
                             </div>
                         </div>
                     @endforeach
