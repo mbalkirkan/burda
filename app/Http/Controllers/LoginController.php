@@ -25,7 +25,7 @@ class LoginController extends Controller
     {
         if( Auth::attempt(['email' =>$request->email,'password'=>$request->password]))
         {
-            return  redirect()->route('admin');
+            return  redirect()->route('admin.index');
         }
         else{
             dd('hata');
