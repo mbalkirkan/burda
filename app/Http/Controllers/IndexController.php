@@ -102,7 +102,7 @@ class IndexController extends Controller
         $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
 
 
-        $product_comments=Comment::where('product_id', $product->id)->get();
+        $product_comments=Comment::where('product_id', $product->id)->where('visible',1)->get();
 
         return view('product', ['product' => $product,'product_comments'=>$product_comments, 'product_items' => $product_items, 'categories' => $categories, 'category_name' => $category_name]);
     }

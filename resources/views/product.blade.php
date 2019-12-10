@@ -317,7 +317,7 @@
                         name:$('#name').val(),
                         review:$('#review').val(),
                         backing5:$('#backing5').val(),
-                        product_id:{{$product->id}}
+                        product_id: {{$product->id}}
                     },
                     dataType: 'JSON',
                     headers: {

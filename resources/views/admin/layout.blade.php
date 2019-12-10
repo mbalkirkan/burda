@@ -53,6 +53,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{asset('assets/admin/layout4/css/layout.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/admin/layout4/css/themes/light.css')}}" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="{{asset('assets/admin/layout4/css/custom.css')}}" rel="stylesheet" type="text/css"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('header')
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
