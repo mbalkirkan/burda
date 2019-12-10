@@ -59,7 +59,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="product[name]"
+                                    <input type="text" class="form-control" name="product_name" id="product_name"
                                            placeholder="">
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <textarea class="form-control" name="product[description]"></textarea>
+                                    <textarea class="form-control" name="product_description" id="product_description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -99,7 +99,7 @@
                                 </label>
                                 <div class="col-md-10">
                                     <select class="table-group-action-input form-control input-medium"
-                                            name="product[status]">
+                                            name="product_category" id="product_category">
                                         <option value="">Seçiniz...</option>
                                         @foreach($product_category as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
@@ -113,7 +113,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="product[sku]"
+                                    <input type="text" class="form-control" name="product_featured_image" id="product_featured_image"
                                            placeholder="">
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <textarea class="form-control" name="product[description]"></textarea>
+                                    <textarea class="form-control" name="product_photos" id="product_photos"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -130,7 +130,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="product[sku]"
+                                    <input type="text" class="form-control" name="product_phone" id="product_phone"
                                            placeholder="">
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="product[sku]"
+                                    <input type="text" class="form-control" name="product_address" id="product_address"
                                            placeholder="">
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
 													* </span>
                                 </label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="product[sku]"
+                                    <input type="text" class="form-control" name="product_maps_address" id="product_maps_address"
                                            placeholder="">
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
 
     <script src="{{asset('assets\global\plugins\bootstrap-summernote\lang\summernote-tr-TR.js')}}"></script>
     <script src="{{asset('assets/admin/pages/scripts/components-editors.js')}}"></script>
-
+    <script type="text/javascript" src="{{asset('assets/js/noty.min.js')}}"></script>
     <!-- END PAGE LEVEL SCS -->
     <script>
         jQuery(document).ready(function () {
@@ -214,7 +214,39 @@
     </script>
     <script>
         function getproduct(id) {
-            alert(id);
+            $.ajax({
+                url: '{{route('admin.products.get')}}',
+                type: 'POST',
+                data: {
+                    id: id,
+                },
+                dataType: 'JSON',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                /* remind that 'data' is the response of the AjaxController */
+                success: function (data) {
+
+                    $("#product_name").val(data.name);
+                    $("#product_description").val(data.description);
+                    $("#summernote_1").val(data.explanation);
+                    $("#product_category").val(data.product_category_id);
+                    $("#product_featured_image").val(data.featured_image);
+                    $("#product_photos").val(data.photos);
+                    $("#product_phone").val(data.phone);
+                    $("#product_address").val(data.address);
+                    $("#product_maps_address").val(data.googlemaps_address);
+                    noty({
+                        width: 200,
+                        text: 'Şirket Detayları Getirildi !',
+                        type: 'success',
+                        dismissQueue: true,
+                        timeout: 3000,
+                        layout: 'bottomRight',
+
+                    });
+                }
+            });
         }
     </script>
 @endsection

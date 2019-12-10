@@ -61,4 +61,16 @@ class AdminController extends Controller
 
        return view('admin/products',['products'=>$products,'product_category'=>$product_category]);
     }
+
+
+    public function products_get(Request $request)
+    {
+        $product=Product::find($request->id);
+
+        return $product;
+
+
+
+    }
+
 }
