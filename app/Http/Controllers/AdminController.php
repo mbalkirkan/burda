@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -50,5 +51,14 @@ class AdminController extends Controller
             return 200;
         else
             return 423;
+    }
+
+    public function products(Request $request)
+    {
+
+        $products=Product::all();
+        $product_category=ProductCategory::all();
+
+       return view('admin/products',['products'=>$products,'product_category'=>$product_category]);
     }
 }

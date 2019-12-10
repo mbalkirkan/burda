@@ -110,8 +110,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <span class="title">Anasayfa</span>
                     </a>
                 </li>
-                <li class="start  ">
-                    <a href="{{route('admin.index')}}">
+                <li class="start @if(Str::contains(Route::current()->getName(),'admin.products.index'))  active @endif  ">
+                    <a href="{{route('admin.products.index')}}">
                         <i class="icon-notebook"></i>
                         <span class="title">Şirketler</span>
                     </a>
