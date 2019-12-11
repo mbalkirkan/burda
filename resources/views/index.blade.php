@@ -19,13 +19,7 @@
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
 
-        <!-- BEGIN NAVIGATION -->
-        <div class="header-navigation">
-            <ul>
-                <li><a href="shop-item.html">Kids</a></li>
-            </ul>
-        </div>
-        <!-- END NAVIGATION -->
+
     </div>
 </div>
 <!-- Header END -->
@@ -263,7 +257,7 @@
 
 
                                 </div>
-                                <h3><a href="shop-item.html">{{$item->name}}</a></h3>
+                                <h3>{{$item->name}}</h3>
                             </div>
                         </div>
                     @endforeach

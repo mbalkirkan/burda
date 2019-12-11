@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest (the abov
 <!-- Head BEGIN -->
 <head>
     <meta charset="utf-8">
-    <title>Uşak Burda - @yield('title')</title>
+    <title>Uşak Burda | @yield('title')</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -37,7 +37,7 @@ License: You must have a valid license purchased only from themeforest (the abov
     <meta name="language" content="Turkish">
 
     <meta property="og:site_name" content="Uşak Burda">
-    <meta property="og:title" content="Uşak Burda - @yield('title')">
+    <meta property="og:title" content="Uşak Burda | @yield('title')">
     <meta property="og:description" content="@yield('meta_description')">
     <meta property="og:type" content="website">
     <meta property="og:image" content="@yield('meta_image')"><!-- link to image for socio -->
@@ -142,7 +142,7 @@ License: You must have a valid license purchased only from themeforest (the abov
         LayersliderInit.initLayerSlider();
         Layout.initImageZoom();
         Layout.initTouchspin();
-
+        Layout.initTwitter();
     });
 </script>
 <!-- END PAGE LEVEL JAVASCRIPTS -->
