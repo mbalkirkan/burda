@@ -27,17 +27,22 @@ class ProductCategoriesTableSeeder extends Seeder
             'Fotoğraf Çekinmelik Yerler'=>'fa fa-camera'];
 
 
-            \App\ProductCategory::create([
-                'name'=>'İş İlanları',
-                'icon'=>'fa fa-bullhorn',
-                'photo'=>''
-            ]);
+//            \App\ProductCategory::create([
+//                'name'=>'İş İlanları',
+//                'icon'=>'fa fa-bullhorn',
+//                'photo'=>''
+//            ]);
         \App\ProductCategory::create([
             'name'=> 'Cafe & Restoran',
             'icon'=>'fa fa-coffee',
             'photo'=>'https://images.pexels.com/photos/3062752/pexels-photo-3062752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
         ]);
 
+        \App\ProductCategory::create([
+            'name'=> 'Taksi',
+            'icon'=>'fa fa-taxi',
+            'photo'=>'https://images.pexels.com/photos/3062752/pexels-photo-3062752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+        ]);
 
     }
 }

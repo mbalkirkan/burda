@@ -50,6 +50,8 @@
                 <!-- BEGIN SIDEBAR -->
                 <div class="sidebar col-md-3 col-sm-4">
                     <ul class="list-group margin-bottom-25 sidebar-menu">
+                        <li class="list-group-item clearfix"><a href="{{route('jobs.index')}}"><i
+                                    class="fa fa-bullhorn"></i> İş İlanları</a></li>
                         @foreach($categories as $item)
                             <li @if($item->name==$category_name) class="active list-group-item clearfix"
                                 @else  class="list-group-item clearfix" @endif ><a
@@ -255,7 +257,6 @@
         jQuery(document).ready(function () {
             Layout.init();
             Layout.initOWL();
-            Layout.initTwitter();
             Layout.initImageZoom();
             Layout.initTouchspin();
             Layout.initUniform();

@@ -218,6 +218,8 @@
             <!-- BEGIN SIDEBAR -->
             <div class="sidebar col-md-3 col-sm-4">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
+                    <li class="list-group-item clearfix"><a href="{{route('jobs.index')}}"><i
+                                class="fa fa-bullhorn"></i> İş İlanları</a></li>
                     @foreach($categories as $item)
                         <li class="list-group-item clearfix"><a href="{{route('category',['category'=>$item->slug])}}"><i
                                     class="{{$item->icon}}"></i> {{$item->name}}</a></li>

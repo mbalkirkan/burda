@@ -13,10 +13,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::get('/products', 'AdminController@products')->name('admin.products.index');
     Route::post('/products_get', 'AdminController@products_get')->name('admin.products.get');
+    Route::post('/products_update', 'AdminController@products_update')->name('admin.products.update');
+    Route::post('/products_save', 'AdminController@products_save')->name('admin.products.save');
+    Route::post('/products_delete', 'AdminController@products_delete')->name('admin.products.delete');
 
     Route::post('/comment_approve', 'AdminController@comment_approve')->name('admin.comment.approve');
     Route::post('/comment_delete', 'AdminController@comment_delete')->name('admin.comment.delete');
 });
+
+
+Route::get('/is-ilanlari', 'JobController@index')->name('jobs.index');
+
+
 
 Route::get('/{category}', 'IndexController@category')->name('category');
 

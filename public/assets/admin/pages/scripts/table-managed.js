@@ -77,11 +77,10 @@ var TableManaged = function () {
 
         var table = $('#sample_3');
 
-        // begin: third table
         table.dataTable({
 
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
-            "language": {
+            language: {
                 "aria": {
                     "sortAscending": ": activate to sort column ascending",
                     "sortDescending": ": activate to sort column descending"
@@ -90,10 +89,17 @@ var TableManaged = function () {
                 "info": "Gösteriliyor _START_ arası _END_ of _TOTAL_ veriler",
                 "infoEmpty": "Veri bulunamadı",
                 "infoFiltered": "(filtered1 from _MAX_ total entries)",
-                "lengthMenu": "Gösteriliyor _MENU_ veri",
+                "lengthMenu": "Gösteriliyor _MENU_ kayıt",
                 "search": "Ara:",
-                "zeroRecords": "Veri bulunamadı"
+                "zeroRecords": "Veri bulunamadı",
+
+                "paging": {
+                    "previous": "Önce",
+                    "next": "Sonra"
+                }
             },
+
+
 
             // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
             // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js).
@@ -108,13 +114,7 @@ var TableManaged = function () {
             ],
             // set the initial value
             "pageLength": 5,
-            "language": {
-                "lengthMenu": " _MENU_ kayıt",
-                "paging": {
-                    "previous": "Önce",
-                    "next": "Sonra"
-                }
-            },
+
             "columnDefs": [{  // set default column settings
                 'orderable': false,
                 'targets': [0]
@@ -144,6 +144,11 @@ var TableManaged = function () {
 
         tableWrapper.find('.dataTables_length select').select2(); // initialize select2 dropdown
     }
+
+
+
+
+
 
     return {
 

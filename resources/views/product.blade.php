@@ -47,6 +47,8 @@
             <div class="row margin-bottom-40">
                 <div class="sidebar col-md-3 col-sm-4">
                     <ul class="list-group margin-bottom-25 sidebar-menu">
+                        <li class="list-group-item clearfix"><a href="{{route('jobs.index')}}"><i
+                                    class="fa fa-bullhorn"></i> İş İlanları</a></li>
                         @foreach($categories as $item)
                             <li @if($item->name==$category_name) class="active list-group-item clearfix"
                                 @else  class="list-group-item clearfix" @endif ><a
@@ -92,9 +94,9 @@
                                 <p>{{$product->description}}</p>
                                 <br>
                                 <div class="row front-lists-v2 margin-bottom-15">
-                                    <div class="col-md-6">
+                                    <div class="col-md-9">
                                         <ul class="list-unstyled">
-                                            <li><i class="fa fa-phone"></i> {{$product->phone}}</li>
+                                            <li><i class="fa fa-phone"></i> <a href="tel:{{$product->phone}}">{{$product->phone}}</a></li>
                                             <li><i class="fa fa-map-marker"></i> {{$product->address}}</li>
                                             <li><i class="fa fa-globe"></i><a href="{{$product->googlemaps_address}}">Haritalarda Görüntüle</a> </li>
                                         </ul>
@@ -112,7 +114,7 @@
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade" id="Aciklama">
-                                    <p>{{$product->explanation}} </p>
+                                    {!! $product->explanation !!}
                                 </div>
                                 <div class="tab-pane fade" id="Menu">
                                     <!-- BEGIN ACCORDION PORTLET-->
@@ -301,7 +303,6 @@
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();
-            Layout.initTwitter();
             Layout.initOWL();
         });
     </script>

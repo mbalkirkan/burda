@@ -34,6 +34,9 @@ class IndexController extends Controller
 
         $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
 
+       // $categories = ProductCategory::all();
+
+
         $cafe_restoran = Product::where('product_category_id', 2)
             ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
             ->select('products.*', 'product_categories.name as product_categories_name', 'product_categories.slug as product_categories_slug')

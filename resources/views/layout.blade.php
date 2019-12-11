@@ -142,7 +142,7 @@ License: You must have a valid license purchased only from themeforest (the abov
         LayersliderInit.initLayerSlider();
         Layout.initImageZoom();
         Layout.initTouchspin();
-        Layout.initTwitter();
+
     });
 </script>
 <!-- END PAGE LEVEL JAVASCRIPTS -->

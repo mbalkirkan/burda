@@ -43,6 +43,7 @@ class AdminController extends Controller
         else
             return 423;
     }
+
     public function comment_delete(Request $request)
     {
         $de = Comment::find($request->id);
@@ -56,21 +57,69 @@ class AdminController extends Controller
     public function products(Request $request)
     {
 
-        $products=Product::all();
-        $product_category=ProductCategory::all();
+        $products = Product::all();
+        $product_category = ProductCategory::all();
 
-       return view('admin/products',['products'=>$products,'product_category'=>$product_category]);
+        return view('admin/products', ['products' => $products, 'product_category' => $product_category]);
     }
 
 
     public function products_get(Request $request)
     {
-        $product=Product::find($request->id);
-
+        $product = Product::find($request->id);
         return $product;
 
-
-
     }
+
+    public function products_update(Request $request)
+    {
+        $product = Product::find($request->product_id);
+        $product->name = $request->product_name;
+        $product->product_category_id = $request->product_category;
+        $product->description = $request->product_description;
+        $product->explanation = $request->explanation;
+        $product->featured_image = $request->product_featured_image;
+        $product->photos = $request->product_photos;
+        $product->phone = $request->product_phone;
+        $product->address = $request->product_address;
+        $product->googlemaps_address = $request->product_maps_address;
+        $product->save();
+        if ($product)
+            return 200;
+        else
+            return 423;
+    }
+
+    public function products_save(Request $request)
+    {
+        $product = Product::create([
+            'name' => $request->product_name,
+            'product_category_id' => $request->product_category,
+            'description' => $request->product_description,
+            'explanation' => $request->explanation,
+            'featured_image' => $request->product_featured_image,
+            'photos' => $request->product_photos,
+            'phone' => $request->product_phone,
+            'address' => $request->product_address,
+            'googlemaps_address' => $request->product_maps_address
+            ]);
+
+
+        if ($product)
+            return 200;
+        else
+            return 423;
+    }
+    public function products_delete(Request $request)
+    {
+        $product = Product::find($request->product_id);
+
+        $product->delete();
+        if ($product)
+            return 200;
+        else
+            return 423;
+    }
+
 
 }

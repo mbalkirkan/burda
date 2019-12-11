@@ -214,13 +214,26 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-cogs"></i>Table
+                        <i class="fa fa-bullhorn"></i>İlanlar
                     </div>
                     <div class="actions">
-                        <a href="javascript:;" class="btn btn-default btn-sm">
-                            <i class="fa fa-plus"></i> Add </a>
-                        <a href="javascript:;" class="btn btn-default btn-sm">
-                            <i class="fa fa-print"></i> Print </a>
+                        <div class="btn-group">
+                            <a class="btn btn-default btn-sm" href="javascript:;" data-toggle="dropdown">
+                                <i class="fa fa-cogs"></i> İşlem <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+
+                                <li>
+                                    <a href="javascript:;" id="approve">
+                                        <i class="icon-check"></i> Onayla </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" id="delete">
+                                        <i class="fa fa-ban"></i> Sil </a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -231,13 +244,13 @@
                                 <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/>
                             </th>
                             <th>
-                                Username
+                                Ad
                             </th>
                             <th>
-                                Email
+                                İlan Detayı
                             </th>
                             <th>
-                                Status
+                                Durum
                             </th>
                         </tr>
                         </thead>
