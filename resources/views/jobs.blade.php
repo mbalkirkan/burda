@@ -565,7 +565,7 @@
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">İş Ekle</h5>
@@ -574,25 +574,78 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="col-md-12 mb-4">
-
+                <div class="col-md-10 mb-6">
+{{--                    https://mdbootstrap.com/docs/jquery/forms/basic/--}}
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs md-tabs nav-justified">
                         <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link" data-toggle="tab" href="#panel1" role="tab" aria-selected="false"><i class="icon-user"></i> İşveren</a>
+                            <a class="nav-link" data-toggle="tab" href="#panel1" role="tab" aria-selected="false">İşveren</a>
                         </li>
                         <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link active" data-toggle="tab" href="#panel2" role="tab" aria-selected="true">İş Arayan</a>
+                            <a class="nav-link active" data-toggle="tab" href="#panel2" role="tab" aria-selected="true"> İş Arayan</a>
                         </li>
                     </ul>
                     <!-- Tab panels -->
                     <div class="tab-content card">
                         <!--Panel 1-->
-                        <div class="tab-pane fade in" id="panel1" role="tabpanel">
-                            <br>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-                                reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat
-                                ratione porro voluptate odit minima.</p>
+                        <div class="tab-pane fade in" id="panel1" role="tabpanel" >
+                            <!-- Default form register -->
+                            <form class="text-center border border-light p-5" action="#!">
+
+                                <p class="h4 mb-4">Sign up</p>
+
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <!-- First name -->
+                                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                                    </div>
+                                    <div class="col">
+                                        <!-- Last name -->
+                                        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                                    </div>
+                                </div>
+
+                                <!-- E-mail -->
+                                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+                                <!-- Password -->
+                                <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                                    At least 8 characters and 1 digit
+                                </small>
+
+                                <!-- Phone number -->
+                                <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                                    Optional - for two step authentication
+                                </small>
+
+                                <!-- Newsletter -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+                                    <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+                                </div>
+
+                                <!-- Sign up button -->
+                                <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+
+                                <!-- Social register -->
+                                <p>or sign up with:</p>
+
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+                                <hr>
+
+                                <!-- Terms of service -->
+                                <p>By clicking
+                                    <em>Sign up</em> you agree to our
+                                    <a href="" target="_blank">terms of service</a>
+
+                            </form>
+                            <!-- Default form register -->
                         </div>
                         <!--/.Panel 1-->
                         <!--Panel 2-->
