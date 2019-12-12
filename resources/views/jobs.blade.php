@@ -13,7 +13,6 @@
     <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from demo.themeregion.com/jobs/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2019 14:05:07 GMT -->
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -37,6 +36,9 @@
     <meta property="og:url" content="{{Request::url()}}">
 
     <title>Uşak Burda | İş İlanları</title>
+
+
+
     <link rel="stylesheet" href="{{asset('jobs/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('jobs/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('jobs/css/icofont.css')}}">
@@ -44,6 +46,7 @@
     <link rel="stylesheet" href="{{asset('jobs/css/main.css')}}">
     <link id="preset" rel="stylesheet" href="{{asset('jobs/css/presets/preset1.css')}}">
     <link rel="stylesheet" href="{{asset('jobs/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('jobs/css/compiled-4.10.1.min.css')}}">
 
     <!-- font -->
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
@@ -59,6 +62,11 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{asset('jobs/images/ico/apple-touch-icon-72-precomposed.html')}}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset('jobs/images/ico/apple-touch-icon-57-precomposed.png')}}">
     <!-- icons -->
+
+
+
+
+
 </head>
 {{--@stop--}}
 
@@ -84,7 +92,7 @@
 
             <!-- nav-right -->
             <div class="nav-right">
-                <a href="post.html" class="btn">İş Ekle</a>
+                <a class="btn" data-toggle="modal" href="#exampleModalCenter">İş Ekle</a>
             </div>
             <!-- nav-right -->
         </div><!-- container -->
@@ -422,6 +430,8 @@
         </div><!-- cta -->
 
     </div><!-- conainer -->
+
+
 </div><!-- page -->
 
 <!-- download -->
@@ -550,7 +560,62 @@
 <script src="{{asset('jobs/js/price-range.js')}}"></script>
 <script src="{{asset('jobs/js/main.js')}}"></script>
 <script src="{{asset('jobs/js/switcher.js')}}"></script>
+
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">İş Ekle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 mb-4">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs md-tabs nav-justified">
+                        <li class="nav-item waves-effect waves-light">
+                            <a class="nav-link" data-toggle="tab" href="#panel1" role="tab" aria-selected="false"><i class="icon-user"></i> İşveren</a>
+                        </li>
+                        <li class="nav-item waves-effect waves-light">
+                            <a class="nav-link active" data-toggle="tab" href="#panel2" role="tab" aria-selected="true">İş Arayan</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panels -->
+                    <div class="tab-content card">
+                        <!--Panel 1-->
+                        <div class="tab-pane fade in" id="panel1" role="tabpanel">
+                            <br>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                                reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat
+                                ratione porro voluptate odit minima.</p>
+                        </div>
+                        <!--/.Panel 1-->
+                        <!--Panel 2-->
+                        <div class="tab-pane fade active show" id="panel2" role="tabpanel">
+                            <br>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                                reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat
+                                ratione porro voluptate odit minima.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                                reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat
+                                ratione porro voluptate odit minima.</p>
+                        </div>
+                        <!--/.Panel 2-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
+
 </html>
 {{--@stop--}}
 
