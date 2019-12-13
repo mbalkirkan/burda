@@ -574,7 +574,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="col-md-10 mb-6">
+                <div class="col-md-12 mb-6">
 {{--                    https://mdbootstrap.com/docs/jquery/forms/basic/--}}
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs md-tabs nav-justified">
