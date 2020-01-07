@@ -537,37 +537,49 @@
 
                         <!--Body-->
                         <div class="modal-body">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input  id="product_name" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput12">Firma isminiz</label>
+
+
+                            <div class="form-row mb-4">
+
+                                <div class="col">
+                                    <!-- First name -->
+                                    <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Adınız">
+                                </div>
+                                <div class="col">
+                                    <!-- Last name -->
+                                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Soyadınız">
+                                </div>
+                            </div>
+                            <label>Cinsiyet</label>
+                            <select class="browser-default custom-select mb-4">
+                                <option value="" selected disabled>Lütfen Seçiniz</option>
+                                <option value="1" >Bay</option>
+                                <option value="2">Bayan</option>
+                            </select>
+                            <label>Pozisyon</label>
+                            <select class="browser-default custom-select mb-4">
+                                <option value="" selected disabled>Lütfen Seçiniz</option>
+                                <option value="1" >Feedback</option>
+                                <option value="2">Report a bug</option>
+                                <option value="3">Feature request</option>
+                                <option value="4">Feature request</option>
+                            </select>
+                            <label>Çalışma Şekli</label>
+                            <select class="browser-default custom-select mb-4">
+                                <option value="" selected disabled>Lütfen Seçiniz</option>
+                                <option value="1" >Full Time</option>
+                                <option value="2">Part Time</option>
+                            </select>
+                            <!-- Message -->
+                            <div class="form-group">
+                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Detay"></textarea>
                             </div>
 
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-lock prefix"></i>
-                                <input  id="name" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput13">Pozisyon </label>
-                            </div>
-
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input id="detail" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput14">Detay</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input  id="phone" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput14">İrtibat numarası</label>
-                            </div>
+                            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="İrtibat numarası">
 
 
 
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input  id="type" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput14">Çalışma şekli</label>
-                            </div>
+
 
                             <div class="text-center form-sm mt-2">
                                 <button class="btn btn-info">İlan Ver <i class="fas fa-sign-in ml-1"></i></button>
@@ -696,9 +708,12 @@
 {{--    </div>--}}
 {{--</div>--}}
 
-
 <script src="{{asset('jobs/js/modal.js')}}" type="text/javascript"></script>
 <script src="{{asset('jobs/js/tab.js')}}" type="text/javascript"></script>
+
+
+
+
 </body>
 
 </html>

@@ -17,7 +17,7 @@ class CreateJobsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('detail');
-            $table->text('photo');
+            $table->integer('gender')->nullable();
             $table->string('contact_number');
             $table->integer('category_id');
             $table->string('address');
