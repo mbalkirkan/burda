@@ -224,11 +224,11 @@
                             <ul class="dropdown-menu pull-right">
 
                                 <li>
-                                    <a href="javascript:;" id="approve">
+                                    <a href="javascript:;" id="jobapprove">
                                         <i class="icon-check"></i> Onayla </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" id="delete">
+                                    <a href="javascript:;" id="jobdelete">
                                         <i class="fa fa-ban"></i> Sil </a>
                                 </li>
 
@@ -247,7 +247,19 @@
                                 Ad
                             </th>
                             <th>
-                                İlan Detayı
+                                Firma Adı
+                            </th>
+                            <th>
+                                Detay
+                            </th>
+                            <th>
+                                Telefon
+                            </th>
+                            <th>
+                                Kategori
+                            </th>
+                            <th>
+                                Çalışma Şekli
                             </th>
                             <th>
                                 Durum
@@ -255,22 +267,39 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="odd gradeX">
-                            <td>
-                                <input type="checkbox" class="checkboxes" value="1"/>
-                            </td>
-                            <td>
-                                shuxer
-                            </td>
-                            <td>
-                                <a href="mailto:shuxer@gmail.com">
-                                    shuxer@gmail.com </a>
-                            </td>
-                            <td>
-									<span class="label label-sm label-success">
-									Approved </span>
-                            </td>
-                        </tr>
+
+                        @foreach($jobs as $item)
+                            <tr class="odd gradeX" id="job_{{$item->id}}">
+                                <td>
+                                    <input type="checkbox" id="checkj_{{$item->id}}" class="checkboxes"
+                                           value="{{$item->id}}"/>
+                                </td>
+                                <td>
+                                    {{$item->name}}
+                                </td>
+                                <td>
+                                    {{$item->product_name}}
+                                </td>
+                                <td>
+                                    {{$item->detail}}
+                                </td>
+                                <td>
+                                    {{$item->phone}}
+                                </td>
+                                <td>
+                                    {{$item->category}}
+                                </td>
+                                <td>
+                                    @if($item->operation_type==1) İş Arayan   @elseif($item->operation_type==2) İşveren @endif
+                                </td>
+                                <td>
+                                        <span id="status2_{{$item->id}}"   @if($item->active==0)  class="label label-sm label-default"    @elseif($item->active==1) class="label label-sm label-success" @endif>
+								@if($item->active==0) Bekliyor   @elseif($item->active==1) Onaylandı @endif	 </span>
+
+                                </td>
+                            </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -347,6 +376,12 @@
     <script>
         var de=[
             @foreach($comments as $item)
+            {{$item->id}},
+            @endforeach
+        ];
+
+        var job=[
+            @foreach($jobs as $item)
             {{$item->id}},
             @endforeach
         ];
@@ -428,6 +463,105 @@
                                 });
                                 $('#sample_2').DataTable().row($('#comment_'+de[i])).remove().draw();
                               //  sample_2
+
+                            } else {
+                                noty({
+                                    width: 200,
+                                    text: 'Silinemedi !',
+                                    type: 'error',
+                                    dismissQueue: true,
+                                    timeout: 3000,
+                                    layout: 'bottomRight',
+                                });
+                            }
+                        }
+                    });
+                }
+
+            }
+
+
+        });
+
+
+
+        $("#jobapprove").click(function () {
+
+            for (i = 0; i <=job.length; i++) {
+                if ($('#checkj_' + job[i]).is(':checked')) {
+                    $.ajax({
+                        url: '{{route('admin.job.approve')}}',
+                        type: 'POST',
+                        /* send the csrf-token and the input to the controller */
+                        data: {
+                            id: $('#checkj_' + job[i]).val(),
+                        },
+                        async:false,
+                        dataType: 'JSON',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        /* remind that 'data' is the response of the AjaxController */
+                        success: function (data) {
+                            if (data == 200) {
+                                noty({
+                                    width: 200,
+                                    text: 'Onay Yapıldı !',
+                                    type: 'success',
+                                    dismissQueue: true,
+                                    timeout: 3000,
+                                    layout: 'bottomRight',
+
+                                });
+                                $("#status2_"+job[i]).attr('class', 'label label-sm label-success');
+                                $("#status2_"+job[i]).text('Onaylandı');
+                            } else {
+                                noty({
+                                    width: 200,
+                                    text: 'Onay Yapılamadı !',
+                                    type: 'error',
+                                    dismissQueue: true,
+                                    timeout: 3000,
+                                    layout: 'bottomRight',
+                                });
+                            }
+                        }
+                    });
+                }
+
+            }
+
+
+        });
+        $("#jobdelete").click(function () {
+            for (i = 0; i <=job.length; i++) {
+                if ($('#checkj_' + job[i]).is(':checked')) {
+                    $.ajax({
+                        url: '{{route('admin.job.delete')}}',
+                        type: 'POST',
+                        /* send the csrf-token and the input to the controller */
+                        data: {
+                            id: $('#checkj_' + job[i]).val(),
+                        },
+                        async:false,
+                        dataType: 'JSON',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        /* remind that 'data' is the response of the AjaxController */
+                        success: function (data) {
+                            if (data == 200) {
+                                noty({
+                                    width: 200,
+                                    text: 'Silindi !',
+                                    type: 'success',
+                                    dismissQueue: true,
+                                    timeout: 3000,
+                                    layout: 'bottomRight',
+
+                                });
+                                $('#sample_3').DataTable().row($('#comment_'+job[i])).remove().draw();
+                                //  sample_2
 
                             } else {
                                 noty({

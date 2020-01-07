@@ -15,15 +15,17 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->text('detail');
             $table->integer('gender')->nullable();
             $table->string('contact_number');
             $table->integer('category_id');
-            $table->string('address');
-            $table->string('product_name');
+            $table->string('address')->nullable();
+            $table->string('product_name')->nullable();
+            $table->string('operation_type')->nullable();
+
             $table->integer('active')->default(0);
-            $table->integer('type');
+            $table->integer('type_id');
             $table->timestamps();
         });
     }

@@ -62,7 +62,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{asset('jobs/images/ico/apple-touch-icon-72-precomposed.html')}}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset('jobs/images/ico/apple-touch-icon-57-precomposed.png')}}">
     <!-- icons -->
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 
@@ -140,34 +140,39 @@
                 <div role="tabpanel" class="tab-pane fade in active show" id="isveren">
 
                     @foreach($jobs as $item)
+                        @if($item->type_id==2)
                     <div class="job-ad-item">
                         <div class="item-info">
                             <div class="item-image-box">
                                 <div class="item-image">
-                                    <a href="job-details.html"><img src="{{$item->photo}}" alt="Fotoğraf"
+                                    <a href="job-details.html"><img src="@if($item->type_id==1)@if($item->gender==1) {{asset('img/man.png')}} @else {{asset('img/woman.png')}} @endif @else {{asset('img/boss.png')}} @endif" alt="Fotoğraf"
                                                                     class="img-fluid"></a>
                                 </div><!-- item-image -->
                             </div>
 
                             <div class="ad-info">
-                                <span><a href="job-details.html" class=title>{{$item->name}}</a> @ <a href="#">{{$item->product_name}}</a></span>
+                                <span class="title">{{$item->product_name}}</span>
                                 <div class="ad-meta">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>{{$item->address}} </a></li>
-                                        <li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{$item->type}}</a>
+                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$item->address}} </li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>@if($item->operation_type==1)Full Time @else Part Time @endif
                                         </li>
-                                        <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</a>
+                                        <li><i class="fa fa-eye-slash" aria-hidden="true"></i>@if($item->gender==1)Bay @elseif($item->gender==2) Bayan @else Unisex @endif
                                         </li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>{{$item->category}}</a>
+                                        <li><i class="fa fa-tags" aria-hidden="true"></i>{{$item->category}}
+                                        </li>
+                                        <li><i class="fa fa-bookmark" aria-hidden="true"></i>
+                                            {{$item->detail}}
                                         </li>
                                     </ul>
                                 </div><!-- ad-meta -->
                             </div><!-- ad-info -->
                             <div class="button">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
+                                <a href="tel:{{$item->contact_number}}" class="btn btn-primary">Ara</a>
                             </div>
                         </div><!-- item-info -->
                     </div><!-- ad-item -->
+                        @endif
                     @endforeach
 
 
@@ -175,125 +180,42 @@
 
                 <div role="tabpanel" class="tab-pane fade in" id="is-arayan">
 
-                    <div class="job-ad-item">
-                        <div class="item-info">
-                            <div class="item-image-box">
-                                <div class="item-image">
-                                    <a href="job-details.html"><img src="{{asset('jobs/images/job/2.png')}}" alt="Image"
-                                                                    class="img-fluid"></a>
-                                </div><!-- item-image -->
-                            </div>
 
-                            <div class="ad-info">
-                                <span><a href="job-details.html" class=title>Graphics Designer</a> @ <a href="#">AOK Security</a></span>
-                                <div class="ad-meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>San
-                                                Francisco, CA, US </a></li>
-                                        <li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>HR/Org. Development</a>
-                                        </li>
-                                    </ul>
-                                </div><!-- ad-meta -->
-                            </div><!-- ad-info -->
-                            <div class="button">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
-                            </div>
-                        </div><!-- item-info -->
-                    </div><!-- ad-item -->
+                    @foreach($jobs as $item)
+                        @if($item->type_id==1)
+                            <div class="job-ad-item">
+                                <div class="item-info">
+                                    <div class="item-image-box">
+                                        <div class="item-image">
+                                            <a href="job-details.html"><img src="@if($item->type_id==1)@if($item->gender==1) {{asset('img/man.png')}} @else {{asset('img/woman.png')}} @endif @else {{asset('img/boss.png')}} @endif" alt="Fotoğraf"
+                                                                            class="img-fluid"></a>
+                                        </div><!-- item-image -->
+                                    </div>
 
-                    <div class="job-ad-item">
-                        <div class="item-info">
-                            <div class="item-image-box">
-                                <div class="item-image">
-                                    <a href="job-details.html"><img src="{{asset('jobs/images/job/1.png')}}" alt="Image"
-                                                                    class="img-fluid"></a>
-                                </div><!-- item-image -->
-                            </div>
-
-                            <div class="ad-info">
-                                <span><a href="job-details.html" class=title>Project Manager</a> @ <a href="#">Dominos Pizza</a></span>
-                                <div class="ad-meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>San
-                                                Francisco, CA, US </a></li>
-                                        <li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>HR/Org. Development</a>
-                                        </li>
-                                    </ul>
-                                </div><!-- ad-meta -->
-                            </div><!-- ad-info -->
-                            <div class="button">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
-                            </div>
-                        </div><!-- item-info -->
-                    </div><!-- ad-item -->
-
-                    <div class="job-ad-item">
-                        <div class="item-info">
-                            <div class="item-image-box">
-                                <div class="item-image">
-                                    <a href="job-details.html"><img src="{{asset('jobs/images/job/4.png')}}" alt="Image"
-                                                                    class="img-fluid"></a>
-                                </div><!-- item-image -->
-                            </div>
-
-                            <div class="ad-info">
-                                <span><a href="job-details.html" class="title">Human Resource Manager</a> @ <a href="#">Dropbox Inc</a></span>
-                                <div class="ad-meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>San
-                                                Francisco, CA, US </a></li>
-                                        <li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>HR/Org. Development</a>
-                                        </li>
-                                    </ul>
-                                </div><!-- ad-meta -->
-                            </div><!-- ad-info -->
-                            <div class="button">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
-                            </div>
-                        </div><!-- item-info -->
-                    </div><!-- ad-item -->
-
-                    <div class="job-ad-item">
-                        <div class="item-info">
-                            <div class="item-image-box">
-                                <div class="item-image">
-                                    <a href="job-details.html"><img src="{{asset('jobs/images/job/3.png')}}" alt="Image"
-                                                                    class="img-fluid"></a>
-                                </div><!-- item-image -->
-                            </div>
-
-                            <div class="ad-info">
-                                <span><a href="job-details.html" class="title">CTO</a> @ <a href="#">Volja Events & Entertainment</a></span>
-                                <div class="ad-meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>San
-                                                Francisco, CA, US </a></li>
-                                        <li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>HR/Org. Development</a>
-                                        </li>
-                                    </ul>
-                                </div><!-- ad-meta -->
-                            </div><!-- ad-info -->
-                            <div class="button">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
-                            </div>
-                        </div><!-- item-info -->
-                    </div><!-- ad-item -->
+                                    <div class="ad-info">
+                                        <span class="title">{{$item->product_name}}</span>
+                                        <div class="ad-meta">
+                                            <ul>
+                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$item->address}} </li>
+                                                <li><i class="fa fa-clock-o" aria-hidden="true"></i>@if($item->operation_type==1)Full Time @else Part Time @endif
+                                                </li>
+                                                <li><i class="fa fa-eye-slash" aria-hidden="true"></i>@if($item->gender==1)Bay @elseif($item->gender==2) Bayan @else Unisex @endif
+                                                </li>
+                                                <li><i class="fa fa-tags" aria-hidden="true"></i>{{$item->category}}
+                                                </li>
+                                                <li><i class="fa fa-bookmark" aria-hidden="true"></i>
+                                                    {{$item->detail}}
+                                                </li>
+                                            </ul>
+                                        </div><!-- ad-meta -->
+                                    </div><!-- ad-info -->
+                                    <div class="button">
+                                        <a href="tel:{{$item->contact_number}}" class="btn btn-primary">Ara</a>
+                                    </div>
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                        @endif
+                    @endforeach
                 </div><!-- tab-pane -->
 
 
@@ -312,9 +234,9 @@
                         <div class="cta-icon icon-jobs">
                             <img src="{{asset('jobs/images/icon/31.png')}}" alt="Icon" class="img-fluid">
                         </div><!-- cta-icon -->
-                        <h3>3,412</h3>
-                        <h4>Live Jobs</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                        <h3>{{$jobs_count2}}</h3>
+                        <h4>İş İlanı</h4>
+                        <p>İşverenlerin yayınladığı ilanlar</p>
                     </div>
                 </div><!-- single-cta -->
 
@@ -324,9 +246,9 @@
                         <div class="cta-icon icon-company">
                             <img src="{{asset('jobs/images/icon/32.png')}}" alt="Icon" class="img-fluid">
                         </div><!-- cta-icon -->
-                        <h3>12,043</h3>
-                        <h4>Total Company</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                        <h3>{{$jobs_count}}</h3>
+                        <h4>İş Arayan</h4>
+                        <p>İş arayanların yayınladığı ilanlar</p>
                     </div>
                 </div><!-- single-cta -->
 
@@ -336,8 +258,8 @@
                             <img src="{{asset('jobs/images/icon/33.png')}}" alt="Icon" class="img-fluid">
                         </div><!-- cta-icon -->
                         <h3>5,798,298</h3>
-                        <h4>Total Candidate</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                        <h4>Toplam ziyaret</h4>
+                        <p>İş İlanları kategorisini ziyaret eden kişi sayısı</p>
                     </div>
                 </div><!-- single-cta -->
             </div><!-- row -->
@@ -502,31 +424,55 @@
                 <div class="tab-content">
                     <!--Panel 7-->
                     <div class="tab-pane fade in " id="panel7" role="tabpanel">
+                        <div class="modal-body">
+                            <div class="form-row mb-4">
 
-                        <!--Body-->
-                        <div class="modal-body mb-1">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput10">Your afasfasemail</label>
+                                <div class="col">
+                                    <!-- First name -->
+                                    <input type="text" id="name" class="form-control" placeholder="Ad Soyad">
+                                </div>
+                            </div>
+                            <label>Cinsiyet</label>
+                            <select id="male1" class="browser-default custom-select mb-4">
+                                <option value="" selected disabled>Lütfen Seçiniz</option>
+                                <option value="1" >Bay</option>
+                                <option value="2">Bayan</option>
+                            </select>
+                            <label>Pozisyon</label>
+                            <select id="category_id1" class="browser-default custom-select mb-4">
+                                <option value="" selected disabled>Lütfen Seçiniz</option>
+                                @foreach($categories as $item)
+                                    <option value="{{$item->id}}" >{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                            <label>Çalışma Şekli</label>
+                            <select id="operation_type1" class="browser-default custom-select mb-4">
+                                <option value="" selected disabled>Lütfen Seçiniz</option>
+                                <option value="1" >Full Time</option>
+                                <option value="2">Part Time</option>
+                            </select>
+                            <!-- Message -->
+                            <div class="form-group">
+                                <textarea class="form-control rounded-0" id="detail1" rows="3" placeholder="Detay"></textarea>
                             </div>
 
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+                            <input type="text" id="phone1" class="form-control" placeholder="İrtibat numarası">
+
+
+
+
+
+                            <div class="text-center form-sm mt-2">
+                                <button id="jobadd1" class="btn btn-info">İlan Ver </button>
                             </div>
-                            <div class="text-center mt-2">
-                                <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
-                            </div>
+
                         </div>
+                        <!--Body-->
+
                         <!--Footer-->
                         <div class="modal-footer">
-                            <div class="options text-center text-md-right mt-1">
-                                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                            </div>
-                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+
+                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Kapat</button>
                         </div>
 
                     </div>
@@ -534,8 +480,6 @@
 
                     <!--Panel 8-->
                     <div class="tab-pane fade in show active" id="panel8" role="tabpanel">
-
-                        <!--Body-->
                         <div class="modal-body">
 
 
@@ -543,49 +487,48 @@
 
                                 <div class="col">
                                     <!-- First name -->
-                                    <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Adınız">
-                                </div>
-                                <div class="col">
-                                    <!-- Last name -->
-                                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Soyadınız">
+                                    <input type="text" id="product_name" class="form-control" placeholder="Firma Adı" required>
                                 </div>
                             </div>
                             <label>Cinsiyet</label>
-                            <select class="browser-default custom-select mb-4">
+                            <select id="male2" class="browser-default custom-select mb-4">
                                 <option value="" selected disabled>Lütfen Seçiniz</option>
                                 <option value="1" >Bay</option>
                                 <option value="2">Bayan</option>
+                                <option value="3">Unisex</option>
                             </select>
                             <label>Pozisyon</label>
-                            <select class="browser-default custom-select mb-4">
+                            <select id="category_id2" class="browser-default custom-select mb-4">
                                 <option value="" selected disabled>Lütfen Seçiniz</option>
-                                <option value="1" >Feedback</option>
-                                <option value="2">Report a bug</option>
-                                <option value="3">Feature request</option>
-                                <option value="4">Feature request</option>
+                                @foreach($categories as $item)
+                                    <option value="{{$item->id}}" >{{$item->name}}</option>
+                                @endforeach
                             </select>
                             <label>Çalışma Şekli</label>
-                            <select class="browser-default custom-select mb-4">
+                            <select id="operation_type2" class="browser-default custom-select mb-4">
                                 <option value="" selected disabled>Lütfen Seçiniz</option>
                                 <option value="1" >Full Time</option>
                                 <option value="2">Part Time</option>
                             </select>
                             <!-- Message -->
                             <div class="form-group">
-                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Detay"></textarea>
+                                <textarea class="form-control rounded-0" id="detail2" rows="3" placeholder="Detay"></textarea>
                             </div>
-
-                            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="İrtibat numarası">
+                            <input type="text" id="address2" class="form-control" placeholder="Adres">
+                            <br>
+                            <input type="text" id="phone2" class="form-control" placeholder="İrtibat numarası">
 
 
 
 
 
                             <div class="text-center form-sm mt-2">
-                                <button class="btn btn-info">İlan Ver <i class="fas fa-sign-in ml-1"></i></button>
+                                <button id="jobadd2" class="btn btn-info">İlan Ver </button>
                             </div>
 
                         </div>
+                        <!--Body-->
+
                         <!--Footer-->
                         <div class="modal-footer">
 
@@ -708,11 +651,117 @@
 {{--    </div>--}}
 {{--</div>--}}
 
+
+
+
 <script src="{{asset('jobs/js/modal.js')}}" type="text/javascript"></script>
 <script src="{{asset('jobs/js/tab.js')}}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
-
+<script>
+    $("#jobadd1").click(function () {
+        $.ajax({
+                url: '{{route('jobs.add')}}',
+                type: 'POST',
+                /* send the csrf-token and the input to the controller */
+                data: {
+                    name:$('#name').val(),
+                    gender:$('#male1').val(),
+                    category_id:$('#category_id1').val(),
+                    operation_type:$('#operation_type1').val(),
+                    detail:$('#detail1').val(),
+                    phone:$('#phone1').val(),
+                    type_id:'1',
+                },
+                dataType: 'JSON',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                /* remind that 'data' is the response of the AjaxController */
+                success: function (data) {
+                    if (data == 200)
+                        Swal.fire(
+                            'İlan gönderildi!',
+                            'İlanınız Eklendi, yönetici onayından sonra gözükecektir.',
+                            'success'
+                        ).then((result) => {
+                            window.location.reload();
+                        })
+                    else{
+                        Swal.fire(
+                            'İlan Gönderilemedi!',
+                            'İlanınız Eklenemedi. Bütün alanları doldurduğunuzdan emin olun !',
+                            'error'
+                        ).then((result) => {
+                            window.location.reload();
+                        })
+                    }
+                },
+            error: function (xhr, ajaxOptions, thrownError) {
+                Swal.fire(
+                    'İlan Gönderilemedi!',
+                    'İlanınız Eklenemedi. Bütün alanları doldurduğunuzdan emin olun !',
+                    'error'
+                ).then((result) => {
+                    window.location.reload();
+                })
+            }
+            }
+        );
+    });
+    $("#jobadd2").click(function () {
+        $.ajax({
+                url: '{{route('jobs.add')}}',
+                type: 'POST',
+                /* send the csrf-token and the input to the controller */
+                data: {
+                    product_name:$('#product_name').val(),
+                    gender:$('#male2').val(),
+                    category_id:$('#category_id2').val(),
+                    operation_type:$('#operation_type2').val(),
+                    detail:$('#detail2').val(),
+                    phone:$('#phone2').val(),
+                    address:$('#address2').val(),
+                    type_id:'2',
+                },
+                dataType: 'JSON',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                /* remind that 'data' is the response of the AjaxController */
+                success: function (data) {
+                    if (data == 200)
+                        Swal.fire(
+                            'İlan gönderildi!',
+                            'İlanınız Eklendi, yönetici onayından sonra gözükecektir.',
+                            'success'
+                        ).then((result) => {
+                            window.location.reload();
+                        })
+                    else{
+                        Swal.fire(
+                            'İlan Gönderilemedi!',
+                            'İlanınız Eklenemedi. Bütün alanları doldurduğunuzdan emin olun !',
+                            'error'
+                        ).then((result) => {
+                            window.location.reload();
+                        })
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    Swal.fire(
+                        'İlan Gönderilemedi!',
+                        'İlanınız Eklenemedi. Bütün alanları doldurduğunuzdan emin olun !',
+                        'error'
+                    ).then((result) => {
+                        window.location.reload();
+                    })
+                }
+            }
+        );
+    });
+</script>
 
 </body>
 

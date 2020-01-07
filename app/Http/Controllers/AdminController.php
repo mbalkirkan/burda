@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Job;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
@@ -28,8 +29,34 @@ class AdminController extends Controller
         $comment_count = Comment::all()->count();
         $category_count = Product::all()->unique('product_category_id')->count();
 
+        $jobs=Job::join('job_categories', 'jobs.category_id', '=', 'job_categories.id')->select('jobs.*', 'job_categories.name as category')->orderBy('created_at', 'DESC')->get();
 
-        return view('admin/index', ['comments' => $comments, 'product_count' => $product_count, 'comment_count' => $comment_count, 'category_count' => $category_count]);
+        return view('admin/index', ['jobs'=>$jobs,'comments' => $comments, 'product_count' => $product_count, 'comment_count' => $comment_count, 'category_count' => $category_count]);
+    }
+
+
+
+
+
+    public function job_approve(Request $request)
+    {
+        $de = Job::find($request->id);
+        $de->active = 1;
+        $de->save();
+        if ($de)
+            return 200;
+        else
+            return 423;
+    }
+
+    public function job_delete(Request $request)
+    {
+        $de = Job::find($request->id);
+        $de->delete();
+        if ($de)
+            return 200;
+        else
+            return 423;
     }
 
 
