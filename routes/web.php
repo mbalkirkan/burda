@@ -20,14 +20,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/comment_approve', 'AdminController@comment_approve')->name('admin.comment.approve');
     Route::post('/comment_delete', 'AdminController@comment_delete')->name('admin.comment.delete');
 
-    Route::post('/is-ilanlari-ekle', 'JobController@add')->name('jobs.add');
+
     Route::post('/job_approve', 'AdminController@job_approve')->name('admin.job.approve');
     Route::post('/job_delete', 'AdminController@job_delete')->name('admin.job.delete');
 });
 
 
 Route::get('/is-ilanlari', 'JobController@index')->name('jobs.index');
-
+Route::post('/is-ilanlari-ekle', 'JobController@add')->name('jobs.add');
 
 
 Route::get('/{category}', 'IndexController@category')->name('category');
