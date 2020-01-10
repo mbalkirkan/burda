@@ -23,6 +23,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/job_approve', 'AdminController@job_approve')->name('admin.job.approve');
     Route::post('/job_delete', 'AdminController@job_delete')->name('admin.job.delete');
+
+
+    Route::get('/menu', 'AdminController@menu')->name('admin.menu');
+    Route::post('/menu_getcategory', 'AdminController@menu_getcategory')->name('admin.menu.category.get');
+    Route::post('/menu_addcategory', 'AdminController@menu_addcategory')->name('admin.menu.category.add');
+    Route::post('/menu_getitem', 'AdminController@menu_getitem')->name('admin.menu.item.get');
+    Route::post('/menu_additem', 'AdminController@menu_additem')->name('admin.menu.item.add');
+    Route::post('/menu_updateitem', 'AdminController@menu_updateitem')->name('admin.menu.item.update');
+    Route::post('/menu_deleteitem', 'AdminController@menu_deleteitem')->name('admin.menu.item.delete');
 });
 
 

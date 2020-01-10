@@ -50,6 +50,20 @@
                                         class="{{$item->icon}}"></i> {{$item->name}}</a></li>
                         @endforeach
                     </ul>
+
+                    <div class="blog-tags margin-bottom-20">
+                        <h2>Tags</h2>
+                        <ul>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>OS</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Metronic</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Dell</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Conquer</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>MS</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Google</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Keenthemes</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Twitter</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- BEGIN CONTENT -->
                 <div class="col-md-9 col-sm-7">
@@ -196,8 +210,13 @@
                     </div>
                 </div>
                 <!-- END CONTENT -->
+
+                <!-- BEGIN BLOG TAGS -->
+
+                <!-- END BLOG TAGS -->
             </div>
             <!-- BEGIN SIDEBAR & CONTENT -->
+
         </div>
     </div>
 

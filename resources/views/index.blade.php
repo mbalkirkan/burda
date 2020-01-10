@@ -245,9 +245,10 @@
         <!-- BEGIN TWO PRODUCTS & PROMO -->
         <div class="row margin-bottom-35 ">
             <!-- BEGIN TWO PRODUCTS -->
-            <div class="col-md-6 two-items-bottom-items">
+            <div class="col-md-6 two-items-bottom-items ">
                 <h2>Gezilecek &amp; Fotoğraflık Yerler</h2>
                 <div class="owl-carousel owl-carousel2">
+
                     @foreach($gallery as $item)
                         <div>
                             <div class="product-item">
@@ -260,9 +261,12 @@
                                 <h3>{{$item->name}}</h3>
                             </div>
                         </div>
+
                     @endforeach
+
                 </div>
             </div>
+
             <!-- END TWO PRODUCTS -->
             <!-- BEGIN PROMO -->
             <div class="col-md-6 shop-index-carousel">
@@ -424,3 +428,5 @@
 @stop
 
 <!-- BEGIN FOOTER -->
+
+

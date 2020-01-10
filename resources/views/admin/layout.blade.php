@@ -116,6 +116,12 @@ License: You must have a valid license purchased only from themeforest(the above
                         <span class="title">Şirketler</span>
                     </a>
                 </li>
+                <li class="start @if(Str::contains(Route::current()->getName(),'admin.menu'))  active @endif  ">
+                    <a href="{{route('admin.menu')}}">
+                        <i class="fa fa-list"></i>
+                        <span class="title">Menüler</span>
+                    </a>
+                </li>
             </ul>
 
             <!-- END SIDEBAR MENU -->
