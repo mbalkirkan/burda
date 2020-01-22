@@ -18,12 +18,46 @@
     <!-- BEGIN HEADER -->
     <div class="header">
         <div class="container">
-            <a class="site-logo" href="{{route('index')}}"><img src="{{asset('assets/frontend/layout/img/logos/logo-shop-red.png')}}"
+            <a class="site-logo" style="padding-top: 10px; padding-bottom: 10px" href="{{route('index')}}"><img src="{{asset('img/logo.png')}}"
                                                              alt="Uşak Burda"></a>
 
             <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
+            <div class="header-navigation">
+                <ul>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                            BİZE ULAŞIN
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                            HAKKIMIZDA
+                        </a>
+                    </li>
 
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                            KATEGORİ
+
+                        </a>
+
+                        <!-- BEGIN DROPDOWN MENU -->
+                        <ul class="dropdown-menu">
+                            @foreach($categories as $item)
+                                <li ><a href="{{route('category',['category'=>$item->slug])}}"><i
+                                            class="{{$item->icon}}"></i> {{$item->name}}</a></li>
+                            @endforeach
+                        </ul>
+                        <!-- END DROPDOWN MENU -->
+                    </li>
+                    <li class="dropdown">
+                        <a href="{{route('jobs.index')}}">
+                            İŞ İLANLARI
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
         </div>
     </div>
@@ -52,16 +86,19 @@
                     </ul>
 
                     <div class="blog-tags margin-bottom-20">
-                        <h2>Tags</h2>
+                        <h2>Etiketler</h2>
+                        <br>
                         <ul>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>OS</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Metronic</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Dell</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Conquer</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>MS</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Google</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Keenthemes</a></li>
-                            <li><a href="javascript:;"><i class="fa fa-tags"></i>Twitter</a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  Uşak {{$product->name}} </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  Uşakta {{$product->name}} </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} nerede </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} uşak </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} nasıl giderim </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} numara </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} iletişim </a></li>
+                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} adres</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -225,7 +262,7 @@
         <div class="container">
             <div class="row">
                 <!-- BEGIN BOTTOM ABOUT BLOCK -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
+                <div class="col-md-4 col-sm-6 pre-footer-col">
                     <h2>Hakkımızda</h2>
                     <p>Bilgisayar konusunda uzman ekibimizle her geçen gün kendimizi güncelliyoruz. En iyi arayüz
                         sistemlerini ve bunların entegrasyonlarını sağlıyoruz. </p>
@@ -233,7 +270,7 @@
                 </div>
                 <!-- END BOTTOM ABOUT BLOCK -->
                 <!-- BEGIN BOTTOM INFO BLOCK -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
+                <div class="col-md-4 col-sm-6 pre-footer-col">
                     <h2>Bilgi</h2>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirketinizi Ekleyin</a></li>
@@ -247,20 +284,13 @@
                 </div>
                 <!-- END INFO BLOCK -->
 
-                <!-- BEGIN TWITTER BLOCK -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
-                    <h2 class="margin-bottom-0">Latest Tweets</h2>
 
-                </div>
-                <!-- END TWITTER BLOCK -->
 
                 <!-- BEGIN BOTTOM CONTACTS -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
+                <div class="col-md-4 col-sm-6 pre-footer-col">
                     <h2>Bağlantılarımız</h2>
                     <address class="margin-bottom-40">
                         Uşak, TR<br>
-                        Tel: 300 323 3456<br>
-                        Fax: 300 323 1456<br>
                         Email: <a href="mailto:info@metronic.com">info@usakburda.com</a><br>
                     </address>
                 </div>

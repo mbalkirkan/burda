@@ -32,7 +32,7 @@
     <meta property="og:title" content="Uşak Burda | @yield('title')">
     <meta property="og:description" content="@yield('meta_description')">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="@yield('meta_image')"><!-- link to image for socio -->
+    <meta property="og:image" content="{{asset('img/logo.png')}}"><!-- link to image for socio -->
     <meta property="og:url" content="{{Request::url()}}">
 
     <title>Uşak Burda | İş İlanları</title>
@@ -54,13 +54,8 @@
           type='text/css'>
 
     <!-- icons -->
-    <link rel="icon" href="{{asset('jobs/images/ico/favicon.ico')}}">
-    <link rel="apple-touch-icon" sizes="144x144"
-          href="{{asset('jobs/images/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon" sizes="114x114"
-          href="{{asset('jobs/images/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('jobs/images/ico/apple-touch-icon-72-precomposed.html')}}">
-    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('jobs/images/ico/apple-touch-icon-57-precomposed.png')}}">
+    <link rel="icon" href="{{asset('img/fav.ico')}}">
+
     <!-- icons -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -85,9 +80,9 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fa fa-align-justify"></i></span>
             </button>
-            <a class="navbar-brand" href="{{route('index')}}"><img class="img-fluid"
-                                                                   src="{{asset('jobs/images/logo.png')}}"
-                                                                   alt="Logo"></a>
+            <a class="navbar-brand" href="{{route('index')}}"><img style="height: 64px" class="img-fluid"
+                                                                   src="{{asset('img/logo.png')}}"
+                                                                   alt="Uşak Burda"></a>
 
 
             <!-- nav-right -->
@@ -193,10 +188,9 @@
                                     </div>
 
                                     <div class="ad-info">
-                                        <span class="title">{{$item->product_name}}</span>
+                                        <span class="title">{{$item->name}}</span>
                                         <div class="ad-meta">
                                             <ul>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$item->address}} </li>
                                                 <li><i class="fa fa-clock-o" aria-hidden="true"></i>@if($item->operation_type==1)Full Time @else Part Time @endif
                                                 </li>
                                                 <li><i class="fa fa-eye-slash" aria-hidden="true"></i>@if($item->gender==1)Bay @elseif($item->gender==2) Bayan @else Unisex @endif

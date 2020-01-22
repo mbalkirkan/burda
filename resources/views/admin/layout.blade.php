@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{route('index')}}">
-                <img src="../../assets/admin/layout4/img/logo-light.png" alt="logo" class="logo-default"/>
+                <img src="{{asset('img/logo.png')}}" alt="Uşak Burda" style="margin: 0px;" class="logo-default"/>
             </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->

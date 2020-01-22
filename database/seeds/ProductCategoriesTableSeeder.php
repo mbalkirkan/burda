@@ -27,11 +27,7 @@ class ProductCategoriesTableSeeder extends Seeder
             'Fotoğraf Çekinmelik Yerler'=>'fa fa-camera'];
 
 
-//            \App\ProductCategory::create([
-//                'name'=>'İş İlanları',
-//                'icon'=>'fa fa-bullhorn',
-//                'photo'=>''
-//            ]);
+
         \App\ProductCategory::create([
             'name'=> 'Cafe & Restoran',
             'icon'=>'fa fa-coffee',

@@ -1,3 +1,9 @@
+<?php
+
+include '../vendor/autoload.php';
+?>
+
+
 @extends('layout')
 
 @section('title')Anasayfa @stop
@@ -13,12 +19,46 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container">
-        <a class="site-logo" href="{{route('index')}}"><img src="assets/frontend/layout/img/logos/logo-shop-red.png"
-                                                         alt="Metronic Shop UI"></a>
+        <a class="site-logo" style="padding-top: 10px; padding-bottom: 10px" href="{{route('index')}}"><img  src="{{asset('img/logo.png')}}"
+                                                         alt="Uşak Burda"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
+        <div class="header-navigation">
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                        BİZE ULAŞIN
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                        HAKKIMIZDA
+                    </a>
+                </li>
 
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                        KATEGORİ
+
+                    </a>
+
+                    <!-- BEGIN DROPDOWN MENU -->
+                    <ul class="dropdown-menu">
+                        @foreach($categories as $item)
+                            <li ><a href="{{route('category',['category'=>$item->slug])}}"><i
+                                        class="{{$item->icon}}"></i> {{$item->name}}</a></li>
+                        @endforeach
+                    </ul>
+                    <!-- END DROPDOWN MENU -->
+                </li>
+                <li class="dropdown">
+                    <a href="{{route('jobs.index')}}">
+                        İŞ İLANLARI
+                    </a>
+                </li>
+            </ul>
+        </div>
 
     </div>
 </div>
@@ -297,61 +337,61 @@
     </div>
 </div>
 
-<!-- BEGIN BRANDS -->
-<div class="brands">
-    <div class="container">
-        <div class="owl-carousel owl-carousel6-brands">
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/canon.jpg" alt="canon"
-                                                  title="canon"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/esprit.jpg" alt="esprit"
-                                                  title="esprit"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/next.jpg" alt="next"
-                                                  title="next"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/puma.jpg" alt="puma"
-                                                  title="puma"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/zara.jpg" alt="zara"
-                                                  title="zara"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/canon.jpg" alt="canon"
-                                                  title="canon"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/esprit.jpg" alt="esprit"
-                                                  title="esprit"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/next.jpg" alt="next"
-                                                  title="next"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/puma.jpg" alt="puma"
-                                                  title="puma"></a>
-            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/zara.jpg" alt="zara"
-                                                  title="zara"></a>
-        </div>
-    </div>
-</div>
-<!-- END BRANDS -->
+{{--<!-- BEGIN BRANDS -->--}}
+{{--<div class="brands">--}}
+{{--    <div class="container">--}}
+{{--        <div class="owl-carousel owl-carousel6-brands">--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/canon.jpg" alt="canon"--}}
+{{--                                                  title="canon"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/esprit.jpg" alt="esprit"--}}
+{{--                                                  title="esprit"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/next.jpg" alt="next"--}}
+{{--                                                  title="next"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/puma.jpg" alt="puma"--}}
+{{--                                                  title="puma"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/zara.jpg" alt="zara"--}}
+{{--                                                  title="zara"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/canon.jpg" alt="canon"--}}
+{{--                                                  title="canon"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/esprit.jpg" alt="esprit"--}}
+{{--                                                  title="esprit"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/next.jpg" alt="next"--}}
+{{--                                                  title="next"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/puma.jpg" alt="puma"--}}
+{{--                                                  title="puma"></a>--}}
+{{--            <a href="shop-product-list.html"><img src="assets/frontend/pages/img/brands/zara.jpg" alt="zara"--}}
+{{--                                                  title="zara"></a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--<!-- END BRANDS -->--}}
 
 <!-- BEGIN STEPS -->
-<div class="steps-block steps-block-red">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 steps-block-col">
-                <i class="fa fa-phone"></i>
-                <div>
-                    <h2>555 899 81 23</h2>
-                    <em>Bize Ulaşın</em>
-                </div>
-                <span>&nbsp;</span>
-            </div>
-            <div class="col-md-6 steps-block-col">
-                <i class="fa fa-bullhorn"></i>
-                <div>
-                    <h2>Sesinizi Duyuralım</h2>
-                    <em>İlan ve İşyerlerinizi Tanıtalım</em>
-                </div>
+{{--<div class="steps-block steps-block-red">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-6 steps-block-col">--}}
+{{--                <i class="fa fa-phone"></i>--}}
+{{--                <div>--}}
+{{--                    <h2>555 899 81 23</h2>--}}
+{{--                    <em>Bize Ulaşın</em>--}}
+{{--                </div>--}}
+{{--                <span>&nbsp;</span>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-6 steps-block-col">--}}
+{{--                <i class="fa fa-bullhorn"></i>--}}
+{{--                <div>--}}
+{{--                    <h2>Sesinizi Duyuralım</h2>--}}
+{{--                    <em>İlan ve İşyerlerinizi Tanıtalım</em>--}}
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
-        </div>
-    </div>
-</div>
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- END STEPS -->
 
 <!-- BEGIN PRE-FOOTER -->
@@ -359,7 +399,7 @@
     <div class="container">
         <div class="row">
             <!-- BEGIN BOTTOM ABOUT BLOCK -->
-            <div class="col-md-3 col-sm-6 pre-footer-col">
+            <div class="col-md-4 col-sm-6 pre-footer-col">
                 <h2>Hakkımızda</h2>
                 <p>Bilgisayar konusunda uzman ekibimizle her geçen gün kendimizi güncelliyoruz. En iyi arayüz
                     sistemlerini ve bunların entegrasyonlarını sağlıyoruz. </p>
@@ -367,7 +407,7 @@
             </div>
             <!-- END BOTTOM ABOUT BLOCK -->
             <!-- BEGIN BOTTOM INFO BLOCK -->
-            <div class="col-md-3 col-sm-6 pre-footer-col">
+            <div class="col-md-4 col-sm-6 pre-footer-col">
                 <h2>Bilgi</h2>
                 <ul class="list-unstyled">
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirketinizi Ekleyin</a></li>
@@ -381,20 +421,13 @@
             </div>
             <!-- END INFO BLOCK -->
 
-            <!-- BEGIN TWITTER BLOCK -->
-            <div class="col-md-3 col-sm-6 pre-footer-col">
-                <h2 class="margin-bottom-0">Latest Tweets</h2>
 
-            </div>
-            <!-- END TWITTER BLOCK -->
 
             <!-- BEGIN BOTTOM CONTACTS -->
-            <div class="col-md-3 col-sm-6 pre-footer-col">
+            <div class="col-md-4 col-sm-6 pre-footer-col">
                 <h2>Bağlantılarımız</h2>
                 <address class="margin-bottom-40">
                     Uşak, TR<br>
-                    Tel: 300 323 3456<br>
-                    Fax: 300 323 1456<br>
                     Email: <a href="mailto:info@metronic.com">info@usakburda.com</a><br>
                 </address>
             </div>
