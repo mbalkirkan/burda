@@ -60,7 +60,7 @@ return [
      */
 
     'method' => function( $string, $sep  ) {
-        return strtolower(str_replace(['Ğ','ğ','Ş','ş','Ü','ü','Ö','ö',' ','İ','ı'], ['g','g','s','s','u','u','o','o','-','i','i'], $string));
+        return strtolower(str_replace(['Ğ','ğ','Ş','ş','Ü','ü','Ö','ö',' ','İ','ı','Ç','ç'], ['g','g','s','s','u','u','o','o','-','i','i','c','c'], $string));
     },
 
     /**

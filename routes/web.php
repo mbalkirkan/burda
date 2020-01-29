@@ -7,7 +7,7 @@ Route::group(['middleware' => ['checkauth']], function () {
 
 Route::get('/', 'IndexController@index')->name('index');
 Route::post('/comment_add', 'IndexController@product_comment_add')->name('comment.add');
-
+Route::get('/sitemap.xml', 'SitemapController@sitemap')->name('sitemap');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.index');

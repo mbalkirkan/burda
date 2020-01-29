@@ -59,7 +59,9 @@
     <!-- icons -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
+    <style>
+        .well{min-height:20px;padding:19px;margin-bottom:20px;background-color:#f5f5f5;border:1px solid #e3e3e3;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.05);box-shadow:inset 0 1px 1px rgba(0,0,0,.05)}.well blockquote{border-color:#ddd;border-color:rgba(0,0,0,.15)}.well-lg{padding:24px;border-radius:6px}.well-sm{padding:9px;border-radius:3px}
+    </style>
 
 
 </head>
@@ -110,7 +112,7 @@
             <ul class="category-list">
                 @foreach($categories as $item)
                     <li class="category-item">
-                        <a href="job-list.html">
+                        <a href="">
                             <div class="category-icon"><img src="{{asset($item->photo)}}" alt="images"
                                                             class="img-fluid"></div>
                             <span class="category-title">{{$item->name}}</span>
@@ -140,7 +142,7 @@
                         <div class="item-info">
                             <div class="item-image-box">
                                 <div class="item-image">
-                                    <a href="job-details.html"><img src="@if($item->type_id==1)@if($item->gender==1) {{asset('img/man.png')}} @else {{asset('img/woman.png')}} @endif @else {{asset('img/boss.png')}} @endif" alt="Fotoğraf"
+                                    <a href=""><img src="@if($item->type_id==1)@if($item->gender==1) {{asset('img/man.png')}} @else {{asset('img/woman.png')}} @endif @else {{asset('img/boss.png')}} @endif" alt="Fotoğraf"
                                                                     class="img-fluid"></a>
                                 </div><!-- item-image -->
                             </div>
@@ -184,7 +186,7 @@
                                 <div class="item-info">
                                     <div class="item-image-box">
                                         <div class="item-image">
-                                            <a href="job-details.html"><img src="@if($item->type_id==1)@if($item->gender==1) {{asset('img/man.png')}} @else {{asset('img/woman.png')}} @endif @else {{asset('img/boss.png')}} @endif" alt="Fotoğraf"
+                                            <a href=""><img src="@if($item->type_id==1)@if($item->gender==1) {{asset('img/man.png')}} @else {{asset('img/woman.png')}} @endif @else {{asset('img/boss.png')}} @endif" alt="Fotoğraf"
                                                                             class="img-fluid"></a>
                                         </div><!-- item-image -->
                                     </div>
@@ -220,9 +222,9 @@
             </div><!-- tab-content -->
         </div><!-- trending ads -->
 
-        <div class="ad-section text-center">
-            <a href="#"><img src="{{asset('jobs/ads/3.jpg')}}" alt="Image" class="img-fluid"></a>
-        </div><!-- ad-section -->
+{{--        <div class="ad-section text-center">--}}
+{{--            <a href="#"><img src="{{asset('jobs/ads/3.jpg')}}" alt="Image" class="img-fluid"></a>--}}
+{{--        </div><!-- ad-section -->--}}
 
 
         <div class="section cta cta-two text-center">
@@ -339,11 +341,13 @@
 
                             <input type="text" id="phone1" class="form-control" placeholder="İrtibat numarası">
 
+                            <br>
+                            <div class="well">
 
-
-
-
+                                "İlan Ver" butonuna tıklayıp ilan gönderdikten sonra, eklemiş olduğunuz bilgilerin size ait olduğunu kabul etmiş sayılırsınız. Ayrıca Kişisel Verilerin Korunması Kanunu Uyarınca gönderdiğiniz bilgilerin ilan detaylarında gözükmesine rızanızın olduğunu kabul etmiş olursunuz.
+                            </div>
                             <div class="text-center form-sm mt-2">
+
                                 <button id="jobadd1" class="btn btn-info">İlan Ver </button>
                             </div>
 
@@ -399,13 +403,17 @@
                             <br>
                             <input type="text" id="phone2" class="form-control" placeholder="İrtibat numarası">
 
+                            <br>
 
 
+                            <div class="well">
 
-
+                                "İlan Ver" butonuna tıklayıp ilan gönderdikten sonra, eklemiş olduğunuz bilgilerin size ait olduğunu kabul etmiş sayılırsınız. Ayrıca Kişisel Verilerin Korunması Kanunu Uyarınca gönderdiğiniz bilgilerin ilan detaylarında gözükmesine rızanızın olduğunu kabul etmiş olursunuz.
+                            </div>
                             <div class="text-center form-sm mt-2">
                                 <button id="jobadd2" class="btn btn-info">İlan Ver </button>
                             </div>
+
 
                         </div>
                         <!--Body-->

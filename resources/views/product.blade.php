@@ -278,7 +278,7 @@
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Görüş ve Önerileriniz</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirket Girişi</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Yönetici Girişi</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Kariyer</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="{{route('sitemap')}}" target="_blank">Sitemap</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Kurumsal Websiteniz Olsun</a></li>
                     </ul>
                 </div>

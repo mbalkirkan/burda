@@ -1,9 +1,3 @@
-<?php
-
-include '../vendor/autoload.php';
-?>
-
-
 @extends('layout')
 
 @section('title')Anasayfa @stop
@@ -337,6 +331,8 @@ include '../vendor/autoload.php';
     </div>
 </div>
 
+
+
 {{--<!-- BEGIN BRANDS -->--}}
 {{--<div class="brands">--}}
 {{--    <div class="container">--}}
@@ -411,11 +407,11 @@ include '../vendor/autoload.php';
                 <h2>Bilgi</h2>
                 <ul class="list-unstyled">
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirketinizi Ekleyin</a></li>
-                    <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Bize Ulaşın</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a  data-toggle="modal" href="#responsive">Bize Ulaşın</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Görüş ve Önerileriniz</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirket Girişi</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Yönetici Girişi</a></li>
-                    <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Kariyer</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="{{route('sitemap')}}" target="_blank">Sitemap</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Kurumsal Websiteniz Olsun</a></li>
                 </ul>
             </div>
@@ -456,10 +452,79 @@ include '../vendor/autoload.php';
     </div>
 </div>
 <!-- END PRE-FOOTER -->
+{{--<div id="responsive" class="modal fade" tabindex="-1" data-width="760" aria-hidden="true" style="display: none; width: 760px; margin-left: -380px; margin-top: -247.5px;">--}}
+{{--    <div class="modal-header">--}}
+{{--        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>--}}
+{{--        <h4 class="modal-title">Responsive</h4>--}}
+{{--    </div>--}}
+{{--    <div class="modal-body">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-6">--}}
+{{--                <h4>Some Input</h4>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-6">--}}
+{{--                <h4>Some More Input</h4>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    <input class="form-control" type="text">--}}
+{{--                </p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="modal-footer">--}}
+{{--        <button type="button" data-dismiss="modal" class="btn btn-default"><span class="md-click-circle md-click-animate" style="height: 65px; width: 65px; top: -22.5px; left: 5.03125px;"></span>Close</button>--}}
+{{--        <button type="button" class="btn blue">Save changes</button>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
 @stop
 
-<!-- BEGIN FOOTER -->
 
-
+{{--@section('head')--}}
+{{--    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css"/>--}}
+{{--    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>--}}
+{{--    @stop--}}
+{{--<!-- BEGIN FOOTER -->--}}
+{{--@section('js')--}}
+{{--<script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>--}}
+{{--<script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>--}}
+{{--@stop--}}
