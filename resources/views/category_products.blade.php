@@ -234,7 +234,7 @@
                     <h2>Bağlantılarımız</h2>
                     <address class="margin-bottom-40">
                         Uşak, TR<br>
-                        Email: <a href="mailto:info@metronic.com">info@usakburda.com</a><br>
+                        Email: <a href="mailto:info@usakburda.com">info@usakburda.com</a><br>
                     </address>
                 </div>
                 <!-- END BOTTOM CONTACTS -->
