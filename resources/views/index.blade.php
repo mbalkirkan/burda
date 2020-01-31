@@ -404,7 +404,7 @@
             <!-- END BOTTOM ABOUT BLOCK -->
             <!-- BEGIN BOTTOM INFO BLOCK -->
             <div class="col-md-4 col-sm-6 pre-footer-col">
-                <h1>Bilgi</h1>
+                <h2>Bilgi</h2>
                 <ul class="list-unstyled">
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirketinizi Ekleyin</a></li>
                     <li><i class="fa fa-angle-right"></i> <a  data-toggle="modal" href="#responsive">Bize Ulaşın</a></li>
@@ -421,7 +421,7 @@
 
             <!-- BEGIN BOTTOM CONTACTS -->
             <div class="col-md-4 col-sm-6 pre-footer-col">
-                <h1>Bağlantılarımız</h1>
+                <h2>Bağlantılarımız</h2>
                 <address class="margin-bottom-40">
                     Uşak, TR<br>
                     Email: <a href="mailto:info@usakburda.com">info@usakburda.com</a><br>
