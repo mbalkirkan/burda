@@ -4,7 +4,7 @@
 <!--[if IE 9]>
 <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="tr">
 <!--<![endif]-->
 
 <!-- Head BEGIN -->
@@ -20,10 +20,11 @@
     <meta
         content="@yield('meta_keywords')"
         name="keywords">
-    <meta content="Admin" name="author">
-
+    <meta content="Muhammet, info@usakburda.com" name="author">
+    <meta name="publisher" content="MB Software" />
     <meta name="robots" content="index, follow">
     <meta name="language" content="Turkish">
+    <meta name="reply-to" content="info@usakburda.com" />
 
     <meta property="og:site_name" content="Uşak Burda">
     <meta property="og:title" content="Uşak Burda | @yield('title')">

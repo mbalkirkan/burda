@@ -2,7 +2,7 @@
 
 @section('title')Anasayfa @stop
 
-@section('meta_description')Uşak Parmaklarınızın Ucunda, tek tıkla heryere ulaşın, göz atın..@stop
+@section('meta_description')Uşak parmaklarınızın ucunda. Uşaktaki tüm işyerlerini, cafe, restoran, apart, yurt  vb. yerleri kolayca keşfedin, inceleyin, ulaşın. İş ilanı verin veya iş arayın. Uşakla ilgili herşey burada. @stop
 @section('meta_keywords') Uşak cafe,uşak restoran,uşak gezilecek yerler,uşak alışveriş,uşak avm,uşak karun,uşak özdilek,uşak ulubey,uşak itiraf @stop
 
 
@@ -97,7 +97,7 @@
         <!-- slide two start -->
         <div class="ls-slide ls-slide2" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 110,111,112,113;">
 
-            <img src="https://live.staticflickr.com/4854/45613393644_016ff35f06_k.jpg" class="ls-bg"
+            <img  src="https://live.staticflickr.com/4854/45613393644_016ff35f06_k.jpg" class="ls-bg"
                  alt="Slide background">
 
             <div class="ls-l ls-title" style="top: 40%; left: 70%; white-space: nowrap;" data-ls="
@@ -396,7 +396,7 @@
         <div class="row">
             <!-- BEGIN BOTTOM ABOUT BLOCK -->
             <div class="col-md-4 col-sm-6 pre-footer-col">
-                <h1>Hakkımızda</h1>
+                <h2>Hakkımızda</h2>
                 <p>Bilgisayar konusunda uzman ekibimizle her geçen gün kendimizi güncelliyoruz. En iyi arayüz
                     sistemlerini ve bunların entegrasyonlarını sağlıyoruz. </p>
                 <p></p>
@@ -435,7 +435,7 @@
             <div class="col-md-6 col-sm-6">
                 <ul class="social-icons">
                     <li><a class="rss" data-original-title="rss" href="javascript:;"></a></li>
-                    <li><a class="facebook" data-original-title="facebook" target="_blank" href="https://www.facebook.com/usakburdacom/"></a></li>
+                    <li><a class="facebook" data-original-title="facebook" rel="nofollow" target="_blank" href="https://www.facebook.com/usakburdacom/"></a></li>
                     <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
                     <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
                     <li><a class="linkedin" data-original-title="linkedin" href="javascript:;"></a></li>
