@@ -11,14 +11,16 @@
 {{--@section('header')--}}
 
     <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Admin">
+    <meta content="Muhammet, info@usakburda.com" name="author">
+    <meta name="publisher" content="MB Software" />
+
     <meta name="description" content="Uşakta iş ilanları, iş bulabileceğiniz veya iş yayınlayabileceğiniz bir ortam">
     <meta
         content="Uşak iş ilanı, uşak iş ilanları, uşak işveren, uşak iş bul, uşak işçi bul, uşak işçi, uşak çalışan, uşak çalışan bul, uşak iş ver, uşak iş"
@@ -29,8 +31,8 @@
 
 
     <meta property="og:site_name" content="Uşak Burda">
-    <meta property="og:title" content="Uşak Burda | @yield('title')">
-    <meta property="og:description" content="@yield('meta_description')">
+    <meta property="og:title" content="Uşak Burda | İş İlanları">
+    <meta property="og:description" content="Uşakta iş ilanları, iş bulabileceğiniz veya iş yayınlayabileceğiniz bir ortam">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{asset('img/logo.png')}}"><!-- link to image for socio -->
     <meta property="og:url" content="{{Request::url()}}">
