@@ -118,8 +118,8 @@
                             <div class="col-md-4 col-sm-6 col-xs-6">
                                 <div class="product-item">
                                     <div class="pi-img-wrapper">
-                                        <img src="{{$item->featured_image}}"
-                                             class="img-responsive" alt="{{$item->name}}">
+                                        <a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}">  <img src="{{$item->featured_image}}"
+                                                                                                                                                   class="img-responsive" alt="{{$item->name}}"></a>
 
                                     </div>
                                     <h3><a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}">{{$item->name}}</a></h3>
@@ -266,22 +266,18 @@
 
     <!-- Load javascripts at bottom, this will reduce page load time -->
     <!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
-    <!--[if lt IE 9]>
-    <script src="assets/global/plugins/respond.min.js"></script>
-    <![endif]-->
-    <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-    <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
-    <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
-            type="text/javascript"></script>
+
     <!-- END CORE PLUGINS -->
 
-    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
-    <script src="assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
-    <!-- pop up -->
-    <script src="assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js"
-            type="text/javascript"></script><!-- slider for products -->
+
+
+
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+    </body>
+
+@stop
+@section('js')
+
     <script src='assets/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script>
     <!-- product zoom -->
     <script src="assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js"
@@ -291,18 +287,12 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
     <!-- for slider-range -->
 
-    <script src="assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            Layout.init();
-            Layout.initOWL();
-            Layout.initImageZoom();
-            Layout.initTouchspin();
+
+
             Layout.initUniform();
-            Layout.initSliderRange();
+
         });
     </script>
-    <!-- END PAGE LEVEL JAVASCRIPTS -->
-    </body>
-
-@stop
+    @stop

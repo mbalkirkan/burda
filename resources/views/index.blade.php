@@ -225,7 +225,7 @@
                         <div>
                             <div class="product-item">
                                 <div class="pi-img-wrapper">
-                                    <img src="{{$item->featured_image}}" class="img-responsive" alt="{{$item->name}}">
+                                    <a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}"> <img src="{{$item->featured_image}}" class="img-responsive" alt="{{$item->name}}"></a>
                                 </div>
                                 <h3><a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}">{{$item->name}}</a></h3>
                                 <div class="pi-price">{{$item->description}}</div>
@@ -264,8 +264,8 @@
                         <div>
                             <div class="product-item">
                                 <div class="pi-img-wrapper">
-                                    <img src="{{$item->featured_image}}" class="img-responsive"
-                                         alt="{{$item->name}}">
+                                    <a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}"> <img src="{{$item->featured_image}}" class="img-responsive"
+                                                                                                                                              alt="{{$item->name}}"></a>
                                 </div>
                                 <h3><a href="{{route('product',['category'=>$item->product_categories_slug,'product'=>$item->slug]) }}">{{$item->name}}</a></h3>
                             </div>
