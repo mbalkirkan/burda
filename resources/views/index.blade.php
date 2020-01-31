@@ -217,7 +217,7 @@
         <div class="row margin-bottom-40">
             <!-- BEGIN SALE PRODUCT -->
             <div class="col-md-12 sale-product">
-                <h2>Son eklenenler</h2>
+                <h1>Son eklenenler</h1>
                 <div class="owl-carousel owl-carousel3">
 
 
@@ -258,7 +258,7 @@
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
             <div class="col-md-9 col-sm-8">
-                <h2>Cafe &amp; Restoranlar</h2>
+                <h1>Cafe &amp; Restoranlar</h1>
                 <div class="owl-carousel owl-carousel3">
                     @foreach($cafe_restoran as $item)
                         <div>
@@ -280,7 +280,7 @@
         <div class="row margin-bottom-35 ">
             <!-- BEGIN TWO PRODUCTS -->
             <div class="col-md-6 two-items-bottom-items ">
-                <h2>Gezilecek &amp; Fotoğraflık Yerler</h2>
+                <h1>Gezilecek &amp; Fotoğraflık Yerler</h1>
                 <div class="owl-carousel owl-carousel2">
 
                     @foreach($gallery as $item)
@@ -371,7 +371,7 @@
 {{--            <div class="col-md-6 steps-block-col">--}}
 {{--                <i class="fa fa-phone"></i>--}}
 {{--                <div>--}}
-{{--                    <h2>555 899 81 23</h2>--}}
+{{--                    <h1>555 899 81 23</h1>--}}
 {{--                    <em>Bize Ulaşın</em>--}}
 {{--                </div>--}}
 {{--                <span>&nbsp;</span>--}}
@@ -379,7 +379,7 @@
 {{--            <div class="col-md-6 steps-block-col">--}}
 {{--                <i class="fa fa-bullhorn"></i>--}}
 {{--                <div>--}}
-{{--                    <h2>Sesinizi Duyuralım</h2>--}}
+{{--                    <h1>Sesinizi Duyuralım</h1>--}}
 {{--                    <em>İlan ve İşyerlerinizi Tanıtalım</em>--}}
 {{--                </div>--}}
 
@@ -396,7 +396,7 @@
         <div class="row">
             <!-- BEGIN BOTTOM ABOUT BLOCK -->
             <div class="col-md-4 col-sm-6 pre-footer-col">
-                <h2>Hakkımızda</h2>
+                <h1>Hakkımızda</h1>
                 <p>Bilgisayar konusunda uzman ekibimizle her geçen gün kendimizi güncelliyoruz. En iyi arayüz
                     sistemlerini ve bunların entegrasyonlarını sağlıyoruz. </p>
                 <p></p>
@@ -404,7 +404,7 @@
             <!-- END BOTTOM ABOUT BLOCK -->
             <!-- BEGIN BOTTOM INFO BLOCK -->
             <div class="col-md-4 col-sm-6 pre-footer-col">
-                <h2>Bilgi</h2>
+                <h1>Bilgi</h1>
                 <ul class="list-unstyled">
                     <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirketinizi Ekleyin</a></li>
                     <li><i class="fa fa-angle-right"></i> <a  data-toggle="modal" href="#responsive">Bize Ulaşın</a></li>
@@ -421,7 +421,7 @@
 
             <!-- BEGIN BOTTOM CONTACTS -->
             <div class="col-md-4 col-sm-6 pre-footer-col">
-                <h2>Bağlantılarımız</h2>
+                <h1>Bağlantılarımız</h1>
                 <address class="margin-bottom-40">
                     Uşak, TR<br>
                     Email: <a href="mailto:info@metronic.com">info@usakburda.com</a><br>
@@ -435,7 +435,7 @@
             <div class="col-md-6 col-sm-6">
                 <ul class="social-icons">
                     <li><a class="rss" data-original-title="rss" href="javascript:;"></a></li>
-                    <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
+                    <li><a class="facebook" data-original-title="facebook" target="_blank" href="https://www.facebook.com/usakburdacom/"></a></li>
                     <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
                     <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
                     <li><a class="linkedin" data-original-title="linkedin" href="javascript:;"></a></li>
