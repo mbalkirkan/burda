@@ -22,7 +22,24 @@ class IndexController extends Controller
     {
         //
     }
+    public function about(Request $request)
+    {
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
 
+        return view('about',['categories' => $categories]);
+    }
+    public function privacy(Request $request)
+    {
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
+
+        return view('privacy',['categories' => $categories]);
+    }
+    public function terms(Request $request)
+    {
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
+
+        return view('terms',['categories' => $categories]);
+    }
     public function index(Request $request)
     {
         $new_products = Product::limit(10)

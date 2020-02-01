@@ -346,7 +346,8 @@
                             <br>
                             <div class="well">
 
-                                "İlan Ver" butonuna tıklayıp ilan gönderdikten sonra, eklemiş olduğunuz bilgilerin size ait olduğunu kabul etmiş sayılırsınız. Ayrıca Kişisel Verilerin Korunması Kanunu Uyarınca gönderdiğiniz bilgilerin ilan detaylarında gözükmesine rızanızın olduğunu kabul etmiş olursunuz.
+                                "İlan Ver" butonuna tıkladığınızda <a href="{{route('terms')}}">Kullanım Koşulları</a> ve
+                                <a href="{{route('privacy')}}">Gizlilik Sözleşmesi</a> 'ni okumuş ve kabul etmiş sayılırsınız.
                             </div>
                             <div class="text-center form-sm mt-2">
 
@@ -410,7 +411,8 @@
 
                             <div class="well">
 
-                                "İlan Ver" butonuna tıklayıp ilan gönderdikten sonra, eklemiş olduğunuz bilgilerin size ait olduğunu kabul etmiş sayılırsınız. Ayrıca Kişisel Verilerin Korunması Kanunu Uyarınca gönderdiğiniz bilgilerin ilan detaylarında gözükmesine rızanızın olduğunu kabul etmiş olursunuz.
+                                "İlan Ver" butonuna tıkladığınızda <a href="{{route('terms')}}">Kullanım Koşulları</a> ve
+                                <a href="{{route('privacy')}}">Gizlilik Sözleşmesi</a> 'ni okumuş ve kabul etmiş sayılırsınız.
                             </div>
                             <div class="text-center form-sm mt-2">
                                 <button id="jobadd2" class="btn btn-info">İlan Ver </button>

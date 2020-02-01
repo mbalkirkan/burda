@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                        <a  href="{{route('about')}}">
                             HAKKIMIZDA
                         </a>
                     </li>
@@ -216,11 +216,11 @@
                 <div class="col-md-4 col-sm-6 pre-footer-col">
                     <h2>Bilgi</h2>
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirketinizi Ekleyin</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Bize Ulaşın</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="{{route('privacy')}}">Gizlilik Politikası</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a   href="{{route('terms')}}">Kullanım Koşulları</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Görüş ve Önerileriniz</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Şirket Girişi</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Yönetici Girişi</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="">Yönetici Girişi</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="{{route('sitemap')}}" target="_blank">Sitemap</a></li>
                         <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Kurumsal Websiteniz Olsun</a></li>
                     </ul>
