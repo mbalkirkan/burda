@@ -19,7 +19,8 @@ class SitemapController extends Controller
         $product = Product::join('product_categories', 'products.product_category_id', '=', 'product_categories.id')->orderBy('updated_at', 'DESC')
             ->select('products.*','product_categories.slug as category_slug')
             ->get();
-        $product_category = ProductCategory::orderBy('updated_at', 'DESC')->get();
+
+        $product_category = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->orderBy('products.updated_at', 'DESC')->get()->unique();
 
         $now = Carbon::now()->toAtomString();
         $content = view('sitemap', compact('product','now','product_category'));
