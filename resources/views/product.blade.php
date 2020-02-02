@@ -6,7 +6,7 @@
 @section('meta_description')Uşak parmaklarınızın ucunda. Uşaktaki tüm işyerlerini, cafe, restoran, apart, yurt  vb. yerleri kolayca keşfedin, inceleyin, ulaşın. İş ilanı verin veya iş arayın. Uşakla ilgili herşey burada. @stop
 @section('meta_keywords')Uşak {{$product->name}}, {{$product->name}}, Uşakta {{$product->name}}, {{$product->name}} nerede,{{$product->name}} uşak, {{$product->name}} nasıl giderim, {{$product->name}} numara, {{$product->name}} iletişim, {{$product->name}} adres @stop
 
-@section('meta_image'){{$product->featured_image}}@stop
+@section('meta_image'){{asset($product->featured_image)}}@stop
 
 @section('head')
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -6,7 +6,7 @@
 @section('meta_description')Uşak Parmaklarınızın Ucunda, tek tıkla heryere ulaşın, göz atın.. @stop
 @section('meta_keywords')Uşak {{$category_name}}, Uşakta {{$category_name}}, Uşakta en iyi {{$category_name}}, Uşakta ucuz {{$category_name}}, Uşak açık {{$category_name}}, Açık {{$category_name}}, Uşak Burda @stop
 
-@section('meta_image'){{$category_photo}}@stop
+@section('meta_image'){{asset($category_photo)}}@stop
 
 @section('body')
 
