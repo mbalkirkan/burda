@@ -30,7 +30,7 @@
     <meta property="og:title" content="Uşak Burda | @yield('title')">
     <meta property="og:description" content="@yield('meta_description')">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{asset('img/logo.png')}}"><!-- link to image for socio -->
+    <meta property="og:image" content="@yield('meta_image')"><!-- link to image for socio -->
     <meta property="og:url" content="{{Request::url()}}">
 
     <link rel="shortcut icon" href="{{asset('img/fav.ico')}}">

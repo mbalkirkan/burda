@@ -41,6 +41,8 @@ Route::post('/is-ilanlari-ekle', 'JobController@add')->name('jobs.add');
 Route::get('/hakkimizda.html', 'IndexController@about')->name('about');
 Route::get('/gizlilik-politikasi.html', 'IndexController@privacy')->name('privacy');
 Route::get('/kullanim-kosullari.html', 'IndexController@terms')->name('terms');
+
+
 Route::get('/{category}', 'IndexController@category')->name('category');
 
 Route::get('/{category}/{product}', 'IndexController@product')->name('product');

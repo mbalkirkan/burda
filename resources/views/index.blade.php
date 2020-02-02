@@ -5,6 +5,7 @@
 @section('meta_description')Uşak parmaklarınızın ucunda. Uşaktaki tüm işyerlerini, cafe, restoran, apart, yurt  vb. yerleri kolayca keşfedin, inceleyin, ulaşın. İş ilanı verin veya iş arayın. Uşakla ilgili herşey burada. @stop
 @section('meta_keywords') Uşak cafe,uşak restoran,uşak gezilecek yerler,uşak alışveriş,uşak avm,uşak karun,uşak özdilek,uşak ulubey,uşak itiraf @stop
 
+@section('meta_image'){{asset('img/logo.png')}}@stop
 
 @section('body')
 <!-- Body BEGIN -->
