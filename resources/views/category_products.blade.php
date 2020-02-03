@@ -86,25 +86,27 @@
                                     href="{{route('category',['category'=>$item->slug])}}"><i
                                         class="{{$item->icon}}"></i> {{$item->name}}</a></li>
                         @endforeach
+                        <li class="list-group-item clearfix"><a href="{{route('eczane')}}"><i
+                                    class="fa fa-medkit"></i> Nöbetçi Eczaneler</a></li>
                     </ul>
 
-                    <div class="blog-tags margin-bottom-20">
-                        <h2>Etiketler</h2>
-                        <br>
-                        <ul>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşak {{$category_name}} </a></li>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşakta {{$category_name}} </a></li>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşakta en iyi {{$category_name}} </a></li>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşakta ucuz {{$category_name}} </a></li>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşak açık {{$category_name}} </a></li>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Açık {{$category_name}} </a></li>
-                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşak Burda </a></li>
+{{--                    <div class="blog-tags margin-bottom-20">--}}
+{{--                        <h2>Etiketler</h2>--}}
+{{--                        <br>--}}
+{{--                        <ul>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşak {{$category_name}} </a></li>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşakta {{$category_name}} </a></li>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşakta en iyi {{$category_name}} </a></li>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşakta ucuz {{$category_name}} </a></li>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşak açık {{$category_name}} </a></li>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Açık {{$category_name}} </a></li>--}}
+{{--                           <li><a href="javascript:;"><i class="fa fa-tags"></i>   Uşak Burda </a></li>--}}
 
 
 
 
-                        </ul>
-                    </div>
+{{--                        </ul>--}}
+{{--                    </div>--}}
                 </div>
                 <!-- END SIDEBAR -->
                 <!-- BEGIN CONTENT -->

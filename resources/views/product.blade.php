@@ -83,24 +83,26 @@
                                     href="{{route('category',['category'=>$item->slug])}}"><i
                                         class="{{$item->icon}}"></i> {{$item->name}}</a></li>
                         @endforeach
+                        <li class="list-group-item clearfix"><a href="{{route('eczane')}}"><i
+                                    class="fa fa-medkit"></i> Nöbetçi Eczaneler</a></li>
                     </ul>
 
-                    <div class="blog-tags margin-bottom-20">
-                        <h2>Etiketler</h2>
-                        <br>
-                        <ul>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  Uşak {{$product->name}} </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  Uşakta {{$product->name}} </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} nerede </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} uşak </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} nasıl giderim </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} numara </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} iletişim </a></li>
-                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} adres</a></li>
+{{--                    <div class="blog-tags margin-bottom-20">--}}
+{{--                        <h2>Etiketler</h2>--}}
+{{--                        <br>--}}
+{{--                        <ul>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  Uşak {{$product->name}} </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  Uşakta {{$product->name}} </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} nerede </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} uşak </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} nasıl giderim </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} numara </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} iletişim </a></li>--}}
+{{--                          <li><a href="javascript:;"><i class="fa fa-tags"></i>  {{$product->name}} adres</a></li>--}}
 
-                        </ul>
-                    </div>
+{{--                        </ul>--}}
+{{--                    </div>--}}
                 </div>
                 <!-- BEGIN CONTENT -->
                 <div class="col-md-9 col-sm-7">

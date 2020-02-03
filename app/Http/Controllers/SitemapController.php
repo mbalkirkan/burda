@@ -21,7 +21,6 @@ class SitemapController extends Controller
             ->get();
 
         $product_category = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->orderBy('products.updated_at', 'DESC')->get()->unique();
-
         $now = Carbon::now()->toAtomString();
         $content = view('sitemap', compact('product','now','product_category'));
         return response($content)->header('Content-Type', 'application/xml');

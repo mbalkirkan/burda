@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/is-ilanlari', 'JobController@index')->name('jobs.index');
 Route::post('/is-ilanlari-ekle', 'JobController@add')->name('jobs.add');
 
+
+Route::get('/usak-nobetci-eczane.html', 'IndexController@eczane')->name('eczane');
 Route::get('/hakkimizda.html', 'IndexController@about')->name('about');
 Route::get('/gizlilik-politikasi.html', 'IndexController@privacy')->name('privacy');
 Route::get('/kullanim-kosullari.html', 'IndexController@terms')->name('terms');

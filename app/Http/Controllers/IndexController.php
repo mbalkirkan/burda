@@ -10,6 +10,7 @@ use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 
+
 class IndexController extends Controller
 {
     /**
@@ -20,6 +21,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
+
         //
     }
     public function about(Request $request)
@@ -64,8 +66,20 @@ class IndexController extends Controller
         $campaigns = Campaign::all();
 
 
+
         return view('index', ['new_products' => $new_products, 'categories' => $categories, 'cafe_restoran' => $cafe_restoran, 'gallery' => $gallery, 'campaigns' => $campaigns]);
     }
+    public function eczane(Request $request)
+    {
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
+
+
+        require __DIR__.'/Eczane/eczane.class.php';
+
+        $nobetci=  \NobetciEczane::Find('usak');
+        return view('eczane',['nobetci'=>$nobetci, 'categories' => $categories]);
+    }
+
 
 
     public function category(Request $request)
