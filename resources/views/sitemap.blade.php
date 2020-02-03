@@ -21,6 +21,12 @@
                 <changefreq>Daily</changefreq>
                 <priority>0.8</priority>
             </url>
+            <url>
+                <loc>{{ url('/').'/usak-nobetci-eczane.html' }}</loc>
+                <lastmod>{{ $post->created_at->toAtomString() }}</lastmod>
+                <changefreq>Daily</changefreq>
+                <priority>0.8</priority>
+            </url>
         @endif
     @endforeach
     @foreach($product as $post)
