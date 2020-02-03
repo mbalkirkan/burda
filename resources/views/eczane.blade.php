@@ -6,7 +6,7 @@
 @section('meta_description')Uşak açık eczaneleri görün, 24 saat açık eczaneler numaraları ve adreslerine ulaşın. Uşak burda uşağa dair herşey @stop
 @section('meta_keywords') Uşak eczane, uşak açık eczane, uşak nöbetçi, uşak nöbetçi eczane, uşak ucuz eczane, uşak en iyi eczane, uşak yakın eczane, uşak ismet paşa caddesi eczane @stop
 
-
+@section('meta_image')https://images.unsplash.com/photo-1579635102486-47eef5652e3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 @stop
 @section('body')
     <body class="ecommerce">
 
