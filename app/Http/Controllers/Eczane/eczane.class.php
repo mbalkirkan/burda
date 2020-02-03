@@ -8,7 +8,7 @@
 class NobetciEczane
 {
 
-    const CACHE_DIR =  __DIR__;
+    const CACHE_DIR = '';
 
     /**
      * @param $url
@@ -17,6 +17,7 @@ class NobetciEczane
      */
     public static function curl($url, $posts = [])
     {
+
         $data = [
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_REFERER => $url,
@@ -103,7 +104,7 @@ class NobetciEczane
         }
 
         # cache dosyasını oluştur
-        file_put_contents(self::CACHE_DIR . '/' . $city . '_' . date('Y-m-d') . '.json', json_encode($data));
+        file_put_contents('../storage/framework/cache'. '/' . $city . '_' . date('Y-m-d') . '.json', json_encode($data));
 
         return $data;
     }
@@ -132,7 +133,7 @@ class NobetciEczane
     public static function Find($city)
     {
         $city = self::permalink($city);
-        $cacheFile = self::CACHE_DIR . '/' . $city . '_' . date('Y-m-d') . '.json';
+        $cacheFile = '../storage/framework/cache' . '/' . $city . '_' . date('Y-m-d') . '.json';
         if (file_exists($cacheFile)) {
             $result = file_get_contents($cacheFile);
             return json_decode($result, true);
