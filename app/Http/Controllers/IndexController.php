@@ -142,6 +142,14 @@ class IndexController extends Controller
     }
 
 
+    public function coronavirus(Request $request)
+    {
+        $categories = ProductCategory::join('products', 'products.product_category_id', '=', 'product_categories.id')->select('product_categories.*')->get()->unique();
+
+        return view('corona',['categories' => $categories]);
+    }
+
+
     public function product_comment_add(Request $request)
     {
        $de= Comment::create([

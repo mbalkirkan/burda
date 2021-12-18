@@ -134,6 +134,7 @@
         Layout.initImageZoom();
         Layout.initTouchspin();
         LayersliderInit.initLayerSlider();
+        @yield('plugin')
     });
 </script>
 <!-- END PAGE LEVEL JAVASCRIPTS -->
