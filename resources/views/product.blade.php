@@ -4,7 +4,7 @@
 
 
 @section('meta_description')Uşak {{$product->name}} adresi, iletişim bilgileri, görseller ve daha fazlası. {{$product->name}} hakkında daha fazla bilgi edinin. Uşaktaki tüm işyerlerini kolayca keşfedin, inceleyin, ulaşın. @stop
-@section('meta_keywords')Uşak {{$product->name}}, {{$product->name}}, Uşakta {{$product->name}}, {{$product->name}} nerede,{{$product->name}} uşak, {{$product->name}} nasıl giderim, {{$product->name}} numara, {{$product->name}} iletişim, {{$product->name}} adres @stop
+@section('meta_keywords')Uşak {{$product->name}}, {{$product->name}}, Uşakta {{$product->name}}, {{$product->name}} nerede,{{$product->name}} uşak, {{$product->name}} nasıl giderim, {{$product->name}} numara, {{$product->name}} iletişim, {{$product->name}} adres, {{$product->name}} menü, {{$product->name}}  menüleri, {{$product->name}}  ürünleri @stop
 
 @section('meta_image'){{asset($product->featured_image)}}@stop
 

@@ -85,6 +85,8 @@ class NobetciEczane
      */
     public static function Parse($html, $city)
     {
+
+
         $more = false;
         preg_match('@<strong>([0-9]+)</strong> adet@', $html, $total);
         preg_match('@sistem_il: "([0-9]+)"@', $html, $cityId);
@@ -139,6 +141,8 @@ class NobetciEczane
             return json_decode($result, true);
         } else {
             $result = self::curl(sprintf('https://ecza.io/%s-nobetci-eczane', $city));
+
+
             return self::Parse($result, $city);
         }
     }
